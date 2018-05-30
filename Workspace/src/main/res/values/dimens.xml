@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--textSize-->
+    <dimen name="tws_SuperBiger_TextSize">36sp</dimen>
+    <dimen name="tws_SuperBig_TextSize">32sp</dimen>
+    <dimen name="tws_Super_TextSize">24sp</dimen>
+    <dimen name="tws_Larger_TextSize">20sp</dimen>
+    <dimen name="tws_Large_TextSize">18sp</dimen>
+    <dimen name="tws_Medium_TextSize">16sp</dimen>
+    <dimen name="tws_Small_TextSize">14sp</dimen>
+    <dimen name="tws_Micro_TextSize">12sp</dimen>
+    <dimen name="tws_Mini_TextSize">10sp</dimen>
+
+    <dimen name="cell_item_width">125dp</dimen>
+    <dimen name="cell_item_height">128dp</dimen>
+    <dimen name="divider_height">1dp</dimen>
+
+    <dimen name="cell_item_cion_size">33dp</dimen>
+
+    <dimen name="cell_item_icon_margin_top_0">45dp</dimen>
+    <dimen name="cell_item_icon_margin_top_1">25dp</dimen>
+
+    <dimen name="cell_item_title_margin_left_0">12dp</dimen>
+    <dimen name="cell_item_title_margin_top_0">10dp</dimen>
+    <dimen name="cell_item_title_margin_bottom_1">10dp</dimen>
+</resources>

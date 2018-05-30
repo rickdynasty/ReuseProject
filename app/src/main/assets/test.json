@@ -1,0 +1,114 @@
+{
+  "workspaceGroups": [
+    {
+      "groupName": "应用系统",
+      "groupId": "1001",
+      "header_height": "114",
+      "header_textColor": "#FF0000FF",
+      "header_textSize": "15",
+      "header_boldText": "true",
+      "equal_width": "false",
+      "header_background": "#FFFFFFFF",
+      "item_width": "125",
+      "item_height": "128",
+      "icon_width": "32",
+      "icon_height": "32",
+      "cell_title_textSize": "13.0",
+      "cell_title_padding": "32",
+      "cell_icon_padding_top": "35",
+      "description":"item_width~cell_icon_padding_top区域的7个属性是为组内CellItem统一配置的属性字段，优先级高于下面CellItem自身配置",
+      "cellItemList": [
+        {
+          "title": "市委OA",
+          "icon": "ic_jhoa",
+          "card_type": "1",
+          "action_type": "0",
+          "action": "点击Card后的去向",
+          "textColor": "#FF67708C",
+          "textSize": "13.0",
+          "title_padding": "32",
+          "icon_padding_top": "35"
+        },
+        {
+          "title": "掌上会议",
+          "icon": "ic_zshy",
+          "card_type": "1",
+          "action_type": "0",
+          "textColor": "#FF67708C",
+          "action": "点击Card后的去向",
+          "item_width":"125",
+          "item_height":"128",
+          "icon_width":"32",
+          "icon_height":"32"
+        }
+      ]
+    },
+    {
+      "groupName": "内部信息",
+      "groupId": "1003",
+      "header_height": "114",
+      "gicon": "GroupiconResName",
+      "header_textColor": "#FF000000",
+      "header_textSize": "15",
+      "header_background": "#FFFFFFFF",
+      "item_width": "125",
+      "item_height": "128",
+      "icon_width": "32",
+      "icon_height": "32",
+      "cell_title_textSize": "13.0",
+      "cell_title_padding": "32",
+      "cell_icon_padding_top": "35",
+      "cellItemList": [
+        {
+          "title": "市领导公务活动视频",
+          "icon": "ic_sldgwhdsp",
+          "card_type": "1",
+          "action_type": "0",
+          "textColor": "#FF67708C",
+          "textSize":"13.0",
+          "action": "点击Card后的去向"
+        },
+        {
+          "title": "信息快报",
+          "icon": "ic_xxkb",
+          "card_type": "1",
+          "action_type": "0",
+          "textColor": "#FF67708C",
+          "action": "点击Card后的去向"
+        },
+        {
+          "title": "值班快报",
+          "icon": "ic_zbkb",
+          "card_type": "1",
+          "action_type": "0",
+          "textColor": "#FF67708C",
+          "action": "点击Card后的去向"
+        },
+        {
+          "title": "媒体报道深圳",
+          "icon": "ic_mtbdsz",
+          "card_type": "1",
+          "action_type": "0",
+          "textColor": "#FF0000FF",
+          "action": "点击Card后的去向"
+        },
+        {
+          "title": "副省级城市动态",
+          "icon": "ic_fsjzyhd",
+          "card_type": "1",
+          "textColor": "#FF67708C",
+          "action_type": "0",
+          "action": "点击Card后的去向"
+        },
+        {
+          "title": "安邦经济研究",
+          "icon": "ic_abjjyj",
+          "card_type": "1",
+          "action_type": "0",
+          "textColor": "#FFFF0000",
+          "action": "点击Card后的去向"
+        }
+      ]
+    }
+  ]
+}
