@@ -34,6 +34,7 @@ public class WorkspaceActivity extends Activity implements IWorkspaceUI, View.On
         mWorkspace = findViewById(R.id.navigation_area);
         mPresenter = new WrokspaceJsonPresenter(this);
         mAdapter = new CellLayoutAdapter(this);
+        mAdapter.setCellItemOnClickListener(this);
 
         GridLayoutManager manager = new GridLayoutManager(this, Workspace.GRID_SPANCOUNT);
         //设置header
@@ -41,7 +42,7 @@ public class WorkspaceActivity extends Activity implements IWorkspaceUI, View.On
 
         mWorkspace.setLayoutManager(manager);
         mWorkspace.setAdapter(mAdapter);
-        mPresenter.loadJsonFromAssets(this, "workspace.json");//workspace//test
+        mPresenter.loadJsonFromAssets(this, "test.json");//workspace//test
     }
 
     @Override

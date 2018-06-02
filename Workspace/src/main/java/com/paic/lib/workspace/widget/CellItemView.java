@@ -9,7 +9,10 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
+import android.view.MotionEvent;
 import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -226,6 +229,35 @@ public class CellItemView extends RelativeLayout {
         if (!TextUtils.isEmpty(cardStruct.getIconName())) {
             mIcon.setImageResource(getResources().getIdentifier(cardStruct.getIconName(), "drawable", getContext().getApplicationInfo().packageName));
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        super.onTouchEvent(event);
+
+        switch (event.getAction() & MotionEvent.ACTION_MASK) {
+            case MotionEvent.ACTION_DOWN:
+                beginScale(R.anim.cellitem_zoom_in);
+                break;
+            case MotionEvent.ACTION_UP:
+                beginScale(R.anim.cellitem_zoom_out);
+                break;
+            case MotionEvent.ACTION_CANCEL:
+                beginScale(R.anim.cellitem_zoom_out);
+                break;
+        }
+
+        return true;
+    }
+
+    private synchronized void beginScale(int animation) {
+        if (null == mLinearContainer)
+            return;
+
+        Animation an = AnimationUtils.loadAnimation(getContext(), animation);
+        an.setDuration(50);
+        an.setFillAfter(true);
+        mLinearContainer.startAnimation(an);
     }
 
     public void setCardGradientColor(final int[] colors) {
