@@ -69,7 +69,9 @@ public class CellItemStruct {
     public int icon_height = INVALID_VALUE;
     protected int title_padding = INVALID_VALUE;
     protected int icon_padding_top = INVALID_VALUE;
-    protected boolean needFixWidth = false;
+
+    protected boolean needFixWidth = false;         //默认自动适配宽度
+    protected boolean titleSingleLine = true;       //默认标题只一行显示
 
     public CellItemStruct() {
     }
@@ -286,5 +288,9 @@ public class CellItemStruct {
 
     public boolean needFixWidth() {
         return this.needFixWidth;
+    }
+
+    public boolean titleSingleLine() {
+        return this.titleSingleLine;
     }
 }
