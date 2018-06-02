@@ -54,7 +54,7 @@ public class CellItemView extends RelativeLayout {
     private final float mDefaultTextSize;
 
     //0 - on; 1 - down;
-    private final int mDefaultTitleLeftMargin0, mDefaultTitleTopMargin0, mDefaultTitleBottomMargin1;
+    private final int mDefaultTitleLeftMargin0;
     private final int getmDefaultTitleMarginIcon;
 
     //For DividerDecoration drawing split lines
@@ -71,8 +71,6 @@ public class CellItemView extends RelativeLayout {
     public CellItemView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mDefaultTitleLeftMargin0 = getResources().getDimensionPixelSize(R.dimen.cell_item_title_margin_left_0);
-        mDefaultTitleTopMargin0 = getResources().getDimensionPixelSize(R.dimen.cell_item_title_margin_top_0);
-        mDefaultTitleBottomMargin1 = getResources().getDimensionPixelSize(R.dimen.cell_item_title_margin_bottom_1);
 
         getmDefaultTitleMarginIcon = getResources().getDimensionPixelSize(R.dimen.cell_item_title_margin_icon);
         mDefaultTextSize = 13.0f;
@@ -150,7 +148,7 @@ public class CellItemView extends RelativeLayout {
             setCardGradientColor(colors);
 
             if (!TextUtils.isEmpty(cardStruct.getShadowResName())) {
-                setBackgroundResource(getResources().getIdentifier(cardStruct.getShadowResName(), "drawable", getContext().getApplicationInfo().packageName));
+                setBackgroundResource(getResources().getIdentifier(cardStruct.getShadowResName(), "mipmap", getContext().getApplicationInfo().packageName));
             }
         } else {
             if (null != mBackgroundImage) {
@@ -227,7 +225,7 @@ public class CellItemView extends RelativeLayout {
         mTitle.setTextColor(cardStruct.getTitleTextColor());
         mTitle.setText(cardStruct.getTitle());
         if (!TextUtils.isEmpty(cardStruct.getIconName())) {
-            mIcon.setImageResource(getResources().getIdentifier(cardStruct.getIconName(), "drawable", getContext().getApplicationInfo().packageName));
+            mIcon.setImageResource(getResources().getIdentifier(cardStruct.getIconName(), "mipmap", getContext().getApplicationInfo().packageName));
         }
     }
 

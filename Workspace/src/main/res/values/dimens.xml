@@ -17,11 +17,6 @@
 
     <dimen name="cell_item_cion_size">33dp</dimen>
 
-    <dimen name="cell_item_icon_margin_top_0">45dp</dimen>
-    <dimen name="cell_item_icon_margin_top_1">25dp</dimen>
-
     <dimen name="cell_item_title_margin_left_0">12dp</dimen>
-    <dimen name="cell_item_title_margin_top_0">10dp</dimen>
-    <dimen name="cell_item_title_margin_bottom_1">10dp</dimen>
     <dimen name="cell_item_title_margin_icon">9dp</dimen>
 </resources>
