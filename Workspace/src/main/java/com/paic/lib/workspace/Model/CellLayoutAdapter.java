@@ -38,6 +38,12 @@ public class CellLayoutAdapter extends BaseAdapter<HeaderHolder, CellItemHolder,
     // 是否是收起的状态【默认是展开的】
     private SparseBooleanArray mCollapseStateMap;
 
+    private View.OnClickListener mCellItemOnClickListener = null;
+
+    public void setCellItemOnClickListener(View.OnClickListener listener) {
+        mCellItemOnClickListener = listener;
+    }
+
     public CellLayoutAdapter(Context context) {
         mContext = context;
         mInflater = LayoutInflater.from(context);
@@ -74,6 +80,7 @@ public class CellLayoutAdapter extends BaseAdapter<HeaderHolder, CellItemHolder,
 
     @Override
     protected HeaderHolder onCreateGroupHeaderViewHolder(ViewGroup parent, int viewType) {
+        Log.i(TAG, "onCreateGroupHeaderViewHolder viewType:" + viewType);
         return new HeaderHolder(mInflater.inflate(R.layout.workspace_header_item, parent, false));
     }
 
@@ -84,11 +91,13 @@ public class CellLayoutAdapter extends BaseAdapter<HeaderHolder, CellItemHolder,
 
     @Override
     protected CellItemHolder onCreateItemViewHolder(ViewGroup parent, int viewType) {
+        Log.i(TAG, "onCreateItemViewHolder viewType:" + viewType);
         return new CellItemHolder(mInflater.inflate(R.layout.workspace_cell_item, parent, false));
     }
 
     @Override
     protected void onBindGroupHeaderViewHolder(final HeaderHolder holder, final int group) {
+        Log.i(TAG, "onBindGroupHeaderViewHolder group:" + group);
         final WorkspaceGroupContent groupContent = groupDataList.get(group);
         holder.titleView.setText(groupContent.getName());
         if (groupContent.header_textSizeEffective()) {
@@ -133,8 +142,9 @@ public class CellLayoutAdapter extends BaseAdapter<HeaderHolder, CellItemHolder,
         final CellItemStruct itemStruct = groupDataList.get(group).cellItemList.get(position);
         Log.i(TAG, "onBindItemViewHolder group:" + group + " position:" + position + " itemStruct is " + itemStruct);
         holder.card.init(itemStruct);
-        if (mContext instanceof View.OnClickListener) {
-            holder.card.setOnClickListener((View.OnClickListener) mContext);
+
+        if (null != mCellItemOnClickListener) {
+            holder.card.setOnClickListener(mCellItemOnClickListener);
         }
     }
 

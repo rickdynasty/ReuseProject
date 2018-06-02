@@ -74,7 +74,9 @@ public class CellItemView extends RelativeLayout {
 
     public void init(CellItemStruct cardStruct) {
         ViewGroup.LayoutParams lp = getLayoutParams();
-        lp.width = cardStruct.item_width;
+        if (cardStruct.needFixWidth()) {
+            lp.width = cardStruct.item_width;
+        }
         lp.height = cardStruct.item_height;
         setLayoutParams(lp);
 
@@ -96,6 +98,13 @@ public class CellItemView extends RelativeLayout {
             colors = new int[]{cardStruct.getGradientStartColor(), cardStruct.getGradientCenterColor(), cardStruct.getGradientEndColor()};
         } else if (cardStruct.gradientEffective()) {
             colors = new int[]{cardStruct.getGradientStartColor(), cardStruct.getGradientEndColor()};
+        } else if (!cardStruct.needFixWidth()) {    // 注意如果json配置没有要求固定宽度，就使用BackgroundImage来撑满等分宽度
+            //如果没使用渐变，就采用背景色
+            if (cardStruct.bkColorEffective()) {
+                colors = new int[]{cardStruct.getBackgroundColor(), cardStruct.getBackgroundColor()};
+            } else {
+                colors = new int[]{Color.WHITE, Color.WHITE};
+            }
         } else {
             colors = null;
         }

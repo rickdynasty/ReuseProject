@@ -69,6 +69,7 @@ public class CellItemStruct {
     public int icon_height = INVALID_VALUE;
     protected int title_padding = INVALID_VALUE;
     protected int icon_padding_top = INVALID_VALUE;
+    protected boolean needFixWidth = false;
 
     public CellItemStruct() {
     }
@@ -281,5 +282,9 @@ public class CellItemStruct {
 
     public int getIconPaddingTop() {
         return this.icon_padding_top;
+    }
+
+    public boolean needFixWidth() {
+        return this.needFixWidth;
     }
 }

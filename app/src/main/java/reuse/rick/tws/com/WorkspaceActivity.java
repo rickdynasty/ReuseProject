@@ -41,7 +41,7 @@ public class WorkspaceActivity extends Activity implements IWorkspaceUI, View.On
 
         mWorkspace.setLayoutManager(manager);
         mWorkspace.setAdapter(mAdapter);
-        mPresenter.loadJsonFromAssets(this, "test.json");
+        mPresenter.loadJsonFromAssets(this, "test.json");//workspace//test
     }
 
     @Override

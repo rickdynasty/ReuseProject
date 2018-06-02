@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <!--textSize-->
-    <dimen name="tws_SuperBiger_TextSize">36sp</dimen>
-    <dimen name="tws_SuperBig_TextSize">32sp</dimen>
-    <dimen name="tws_Super_TextSize">24sp</dimen>
-    <dimen name="tws_Larger_TextSize">20sp</dimen>
-    <dimen name="tws_Large_TextSize">18sp</dimen>
-    <dimen name="tws_Medium_TextSize">16sp</dimen>
-    <dimen name="tws_Small_TextSize">14sp</dimen>
-    <dimen name="tws_Micro_TextSize">12sp</dimen>
-    <dimen name="tws_Mini_TextSize">10sp</dimen>
+    <dimen name="paic_SuperBiger_TextSize">36sp</dimen>
+    <dimen name="paic_SuperBig_TextSize">32sp</dimen>
+    <dimen name="paic_Super_TextSize">24sp</dimen>
+    <dimen name="paic_Larger_TextSize">20sp</dimen>
+    <dimen name="paic_Large_TextSize">18sp</dimen>
+    <dimen name="paic_Medium_TextSize">16sp</dimen>
+    <dimen name="paic_Small_TextSize">14sp</dimen>
+    <dimen name="paic_Micro_TextSize">12sp</dimen>
+    <dimen name="paic_Mini_TextSize">10sp</dimen>
 
     <dimen name="cell_item_width">125dp</dimen>
     <dimen name="cell_item_height">128dp</dimen>
