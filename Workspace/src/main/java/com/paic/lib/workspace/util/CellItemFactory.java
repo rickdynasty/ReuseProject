@@ -106,7 +106,7 @@ public class CellItemFactory {
             case ATTENDANCE_NOTICE:
                 title = "考勤通知";
                 shadowRes = R.drawable.shadow_blug;
-                iconRes = R.drawable.ic_mtbdsz;
+                iconRes = R.drawable.work_main_task_icon;
                 startColor = 0xFFFA5779;
                 endColor = 0xFFFD8DA5;
                 weight = 2;
