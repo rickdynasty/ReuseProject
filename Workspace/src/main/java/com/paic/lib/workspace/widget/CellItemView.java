@@ -148,7 +148,7 @@ public class CellItemView extends RelativeLayout {
             setCardGradientColor(colors);
 
             if (!TextUtils.isEmpty(cardStruct.getShadowResName())) {
-                setBackgroundResource(getResources().getIdentifier(cardStruct.getShadowResName(), "mipmap", getContext().getApplicationInfo().packageName));
+                setBackgroundResource(getResources().getIdentifier(cardStruct.getShadowResName(), "drawable", getContext().getApplicationInfo().packageName));
             }
         } else {
             if (null != mBackgroundImage) {
@@ -225,7 +225,7 @@ public class CellItemView extends RelativeLayout {
         mTitle.setTextColor(cardStruct.getTitleTextColor());
         mTitle.setText(cardStruct.getTitle());
         if (!TextUtils.isEmpty(cardStruct.getIconName())) {
-            mIcon.setImageResource(getResources().getIdentifier(cardStruct.getIconName(), "mipmap", getContext().getApplicationInfo().packageName));
+            mIcon.setImageResource(getResources().getIdentifier(cardStruct.getIconName(), "drawable", getContext().getApplicationInfo().packageName));
         }
     }
 

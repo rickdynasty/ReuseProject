@@ -125,7 +125,7 @@ public class CellLayoutAdapter extends BaseAdapter<HeaderHolder, CellItemHolder,
 
         if (!TextUtils.isEmpty(groupContent.getGIcon())) {
             holder.groupIcon.setVisibility(View.VISIBLE);
-            int resID = mContext.getResources().getIdentifier(groupContent.getGIcon(), "mipmap", mContext.getApplicationInfo().packageName);
+            int resID = mContext.getResources().getIdentifier(groupContent.getGIcon(), "drawable", mContext.getApplicationInfo().packageName);
             holder.groupIcon.setImageResource(resID);
         } else {
             holder.groupIcon.setVisibility(View.INVISIBLE);

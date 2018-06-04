@@ -33,8 +33,8 @@ public class CellItemFactory {
 
     public static CellItemStruct createCellItemStruct(int type) {
         String title = "unknow";
-        int iconRes = R.mipmap.ic_launcher;
-        int shadowRes = R.mipmap.ic_launcher;
+        int iconRes = R.drawable.ic_launcher;
+        int shadowRes = R.drawable.ic_launcher;
         int startColor = -1;
         int centerColor = -1;
         int endColor = -1;
@@ -47,57 +47,57 @@ public class CellItemFactory {
         switch (type) {
             case NOTIFY_CARD:
                 title = "特别关注";
-                shadowRes = R.mipmap.shadow_specialcare;
+                shadowRes = R.drawable.shadow_specialcare;
                 startColor = Color.LTGRAY;
                 endColor = Color.LTGRAY;
                 weight = 2;
                 break;
             case DATE_CARD:
                 title = "我的日程";
-                shadowRes = R.mipmap.shadow_black_red;
+                shadowRes = R.drawable.shadow_black_red;
                 startColor = Color.RED;
                 endColor = Color.RED;
                 weight = 1;
                 break;
             case MEETING_MANAGE_CARD:
                 title = "会议管理";
-                shadowRes = R.mipmap.shadow_main_39b1b7;
-                iconRes = R.mipmap.work_main_ic_hygl;
+                shadowRes = R.drawable.shadow_main_39b1b7;
+                iconRes = R.drawable.work_main_ic_hygl;
                 startColor = 0xFF39B1B7;
                 endColor = 0xFF1EDE81;
                 break;
             case LEADER_AGENDA_CARD:
                 title = "日程";
-                shadowRes = R.mipmap.shadow_main_52b0ff;
-                iconRes = R.mipmap.work_main_leader_schedule_icon;
+                shadowRes = R.drawable.shadow_main_52b0ff;
+                iconRes = R.drawable.work_main_leader_schedule_icon;
                 startColor = 0xFF1E78FF;
                 endColor = 0xFF52B0FF;
                 break;
             case WAIT_SINGIN_CARD:
                 title = "待签收";
-                shadowRes = R.mipmap.shadow_main_ff9c68;
-                iconRes = R.mipmap.work_main_waitsign_icon;
+                shadowRes = R.drawable.shadow_main_ff9c68;
+                iconRes = R.drawable.work_main_waitsign_icon;
                 startColor = 0xFFFF6451;
                 endColor = 0xFFFF9C68;
                 break;
             case ARCHIVING_CARD:
                 title = "归档";
-                shadowRes = R.mipmap.shadow_main_d38ffe;
-                iconRes = R.mipmap.work_main_collect_icon;
+                shadowRes = R.drawable.shadow_main_d38ffe;
+                iconRes = R.drawable.work_main_collect_icon;
                 startColor = 0xFF8E33FE;
                 endColor = 0xFFD38FFE;
                 break;
             case OFFICIAL_CAR_CARD:
                 title = "用车";
-                shadowRes = R.mipmap.shadow_main_fd8da5;
-                iconRes = R.mipmap.work_main_item_car_icon;
+                shadowRes = R.drawable.shadow_main_fd8da5;
+                iconRes = R.drawable.work_main_item_car_icon;
                 startColor = 0xFFFA5779;
                 endColor = 0xFFFD8DA5;
                 break;
             case OA_CARD:
                 title = "OA站点";
-                shadowRes = R.mipmap.shadow_main_fd8da5;
-                iconRes = R.mipmap.work_main_item_car_icon;
+                shadowRes = R.drawable.shadow_main_fd8da5;
+                iconRes = R.drawable.work_main_item_car_icon;
                 startColor = 0xFFFA5779;
                 endColor = 0xFFFD8DA5;
                 weight = 1;
@@ -105,8 +105,8 @@ public class CellItemFactory {
 
             case ATTENDANCE_NOTICE:
                 title = "考勤通知";
-                shadowRes = R.mipmap.shadow_blug;
-                iconRes = R.mipmap.function_icon_cmail;
+                shadowRes = R.drawable.shadow_blug;
+                iconRes = R.drawable.ic_mtbdsz;
                 startColor = 0xFFFA5779;
                 endColor = 0xFFFD8DA5;
                 weight = 2;

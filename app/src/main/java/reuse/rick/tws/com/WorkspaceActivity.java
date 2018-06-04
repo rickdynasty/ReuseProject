@@ -1,6 +1,7 @@
 package reuse.rick.tws.com;
 
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
@@ -42,7 +43,7 @@ public class WorkspaceActivity extends Activity implements IWorkspaceUI, View.On
 
         mWorkspace.setLayoutManager(manager);
         mWorkspace.setAdapter(mAdapter);
-        mPresenter.loadJsonFromAssets(this, "workspace.json");//workspace//test
+        mPresenter.loadJsonFromAssets(this, "test.json");//workspace//test
     }
 
     @Override
