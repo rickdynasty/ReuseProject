@@ -33,6 +33,7 @@ public class WorkspaceActivity extends Activity implements IWorkspaceUI, View.On
 
     private void initUI() {
         mWorkspace = findViewById(R.id.navigation_area);
+        mWorkspace.setBackgroundColor(Color.WHITE);
         mPresenter = new WrokspaceJsonPresenter(this);
         mAdapter = new CellLayoutAdapter(this);
         mAdapter.setCellItemOnClickListener(this);

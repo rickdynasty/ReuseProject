@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <color name="transparent">#00000000</color>
+    <color name="paic_black">#ff000000</color>
+    <color name="paic_white">#ffffffff</color>
+
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+
     <color name="colorWorkspaceDivider">#D9D9D9</color>
+    <color name="color_workspace_header_divider_bg">#EDF2FF</color>
 </resources>

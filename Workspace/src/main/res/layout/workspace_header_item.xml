@@ -6,14 +6,14 @@
 
     <View
         android:layout_width="wrap_content"
-        android:layout_height="10dp"
-        android:background="#E5E5E5" />
+        android:layout_height="@dimen/workspace_header_divider_height"
+        android:background="@color/color_workspace_header_divider_bg" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:gravity="center_vertical"
-        android:background="#ffffffff">
+        android:background="@color/paic_white">
 
         <ImageView
             android:id="@+id/g_icon"
