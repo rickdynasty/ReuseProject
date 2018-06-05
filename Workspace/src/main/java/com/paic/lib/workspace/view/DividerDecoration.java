@@ -10,9 +10,11 @@ import android.view.View;
 
 import com.paic.lib.workspace.R;
 import com.paic.lib.workspace.widget.CellItemView;
+import com.paic.lib.workspace.widget.Workspace;
 
 public class DividerDecoration extends RecyclerView.ItemDecoration {
 
+    private static final String TAG = DividerDecoration.class.getSimpleName();
     private int dividerHeight;
     private Paint dividerPaint;
     final int mGridSpanCount;
@@ -41,44 +43,44 @@ public class DividerDecoration extends RecyclerView.ItemDecoration {
 
         int childCount = parent.getChildCount();
 
-        Log.i("rick_Print:Divider", " ");
-        Log.i("rick_Print:Divider", "childCount is " + childCount);
-
         int left, top, right, bottom;
         CellItemView cellItemView;
         for (int i = 0; i < childCount; i++) {
             View view = parent.getChildAt(i);
-            Log.i("rick_Print:Divider", "view is " + view);
             if (!(view instanceof CellItemView))
                 continue;
 
             cellItemView = (CellItemView) view;
-            int positionType = cellItemView.getPositionInGroup() % mGridSpanCount;
-            Log.i("rick_Print:Divider", "" + cellItemView.getTitle());
-            switch (positionType) {
-                case 0:         //右边 只需要绘制下边
-                    left = view.getLeft();
-                    top = view.getBottom();
-                    right = view.getRight();
-                    bottom = view.getBottom() + dividerHeight;
-                    c.drawRect(left, top, right, bottom, dividerPaint);
-                    break;
-                default:        //左边或中间 绘制下边和右边
-                    left = view.getLeft();
-                    top = view.getBottom();
-                    right = view.getRight();
-                    bottom = view.getBottom() + dividerHeight;
-                    c.drawRect(left, top, right, bottom, dividerPaint);
+            final int positionInGroup = cellItemView.getPositionInGroup();
+            final int positionType = positionInGroup % mGridSpanCount;
+            final boolean firstline = positionInGroup < mGridSpanCount;
+            Log.i(TAG, cellItemView.getTitle() + "positionInGroup:" + positionInGroup + " mGridSpanCount " + mGridSpanCount + " positionType=" + positionType + " firstline=" + firstline);
 
-
-                    left = view.getRight();
+            if (mGridSpanCount - 1 == positionType) {
+                if (!firstline) {
+                    // 绘制上边
+                    left = view.getLeft();
                     top = view.getTop() - dividerHeight;
-                    right = view.getRight() + dividerHeight;
-                    bottom = view.getBottom() + dividerHeight;
+                    right = view.getRight();
+                    bottom = top + dividerHeight;
                     c.drawRect(left, top, right, bottom, dividerPaint);
-                    break;
-            }
+                }
+            } else {
+                if (!firstline) {
+                    // 绘制上边
+                    left = view.getLeft();
+                    top = view.getTop() - dividerHeight;
+                    right = view.getRight();
+                    bottom = top + dividerHeight;
+                    c.drawRect(left, top, right, bottom, dividerPaint);
+                }
 
+                left = view.getRight();
+                top = view.getTop() - dividerHeight;
+                right = view.getRight() + dividerHeight;
+                bottom = view.getBottom() + dividerHeight;
+                c.drawRect(left, top, right, bottom, dividerPaint);
+            }
         }
     }
 

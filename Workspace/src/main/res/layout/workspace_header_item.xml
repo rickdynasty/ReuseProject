@@ -9,43 +9,46 @@
         android:layout_height="@dimen/workspace_header_divider_height"
         android:background="@color/color_workspace_header_divider_bg" />
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="51dp"
+        android:background="@color/paic_white"
         android:gravity="center_vertical"
-        android:background="@color/paic_white">
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/g_icon"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
+            android:layout_marginStart="15dp"
             android:visibility="gone" />
 
         <TextView
             android:id="@+id/header_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/g_icon"
-            android:padding="15dp"
+            android:layout_marginStart="15dp"
             android:text="标题"
             android:textSize="15sp" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <TextView
             android:id="@+id/header_switch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:padding="10dp"
+            android:layout_marginLeft="15dp"
             android:text="text"
-            android:textSize="11sp" />
+            android:textSize="11sp"
+            android:visibility="gone"/>
 
-    </RelativeLayout>
+    </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
-        android:background="#BCBCBC" />
+        android:background="@color/colorWorkspaceDivider" />
 </LinearLayout>

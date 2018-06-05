@@ -13,7 +13,7 @@
 
     <dimen name="cell_item_width">125dp</dimen>
     <dimen name="cell_item_height">128dp</dimen>
-    <dimen name="divider_height">1dp</dimen>
+    <dimen name="divider_height">0.5dp</dimen>
 
     <dimen name="cell_item_cion_size">33dp</dimen>
 

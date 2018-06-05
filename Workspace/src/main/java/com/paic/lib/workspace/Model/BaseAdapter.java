@@ -18,7 +18,6 @@ public abstract class BaseAdapter<H extends RecyclerView.ViewHolder,
         VH extends RecyclerView.ViewHolder,
         F extends RecyclerView.ViewHolder>
         extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
-    protected static final String TAG = "rick_Print:BaseAdapter";
 
     protected static final int TYPE_GROUP_HEADER = -1;
     protected static final int TYPE_GROUP_FOOTER = -2;
@@ -75,8 +74,6 @@ public abstract class BaseAdapter<H extends RecyclerView.ViewHolder,
             count += 1 + getItemCountForGroup(i) + (hasFooterInGroup(i) ? 1 : 0);
         }
 
-        Log.i(TAG, "countItems count=" + count);
-
         return count;
     }
 
@@ -108,7 +105,6 @@ public abstract class BaseAdapter<H extends RecyclerView.ViewHolder,
     }
 
     private void setPrecomputedItem(int index, boolean isHeader, boolean isFooter, int group, int position) {
-        Log.i(TAG, "setPrecomputedItem:" + index + " isHeader:" + isHeader + " isFooter:" + isFooter + " group:" + group + " position:" + position);
         this.isHeader[index] = isHeader;
         this.isFooter[index] = isFooter;
         groupForPosition[index] = group;
@@ -162,8 +158,6 @@ public abstract class BaseAdapter<H extends RecyclerView.ViewHolder,
         } else {
             type = getGroupItemViewType(group, index);
         }
-
-        Log.i(TAG, "getItemViewType:" + position + " type=" + getTypeDes(type));
 
         return type;
     }
