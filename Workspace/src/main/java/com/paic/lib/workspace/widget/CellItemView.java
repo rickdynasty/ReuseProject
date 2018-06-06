@@ -120,21 +120,24 @@ public class CellItemView extends RelativeLayout {
     // Note: This can't be filtered - whether it's already init, RecycleView has a recycle reuse
     // mechanism, probably the same CellItemView will be init multiple times
     private void initWidget(final CellItemStruct cardStruct) {
-        mCardType = cardStruct.getCardType();
-
-        boolean needCreateContainer = false;
+        boolean needRestChild = false;
         if (null == mLinearContainer) {
             removeAllViews();
 
             mLinearContainer = new LinearLayout(getContext());
             mLinearContainer.setOrientation(LinearLayout.VERTICAL);
-            mLinearContainer.removeAllViews();
             mIcon = null;
             mTitle = null;
             mBackgroundImage = null;
 
-            needCreateContainer = true;
+            needRestChild = true;
         }
+
+        if (mCardType != cardStruct.getCardType()) {
+            needRestChild = true;
+        }
+
+        mCardType = cardStruct.getCardType();
 
         //dill gradient background
         int[] colors;
@@ -196,7 +199,10 @@ public class CellItemView extends RelativeLayout {
             }
         }
 
-        if (needCreateContainer) {
+        if (needRestChild) {
+            removeView(mLinearContainer);
+            mLinearContainer.removeAllViews();
+
             switch (mCardType) {
                 case CellItemStruct.TITLE_ON_CARD_TYPE: {
                     LayoutParams lpContainer = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);

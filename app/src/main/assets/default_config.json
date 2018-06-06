@@ -23,6 +23,7 @@
     {
       "groupName": "内部信息",
       "groupId": "1002",
+      "isShrink": "true",
       "cellItemList": [
         {
           "title": "市领导公务活动视频",
@@ -45,6 +46,7 @@
         {
           "title": "媒体报道深圳",
           "icon": "ic_mtbdsz",
+          "card_type": "1",
           "action_type": "1",
           "action": "/groupmeeting/activity/my_meetting#param:"
         },
