@@ -20,4 +20,7 @@
     <dimen name="cell_item_title_margin_left_0">12dp</dimen>
     <dimen name="cell_item_title_margin_icon">9dp</dimen>
     <dimen name="workspace_header_divider_height">10dp</dimen>
+
+    <!-- 统一由内部转sp -->
+    <integer name="cell_item_title_textSize">13</integer>
 </resources>

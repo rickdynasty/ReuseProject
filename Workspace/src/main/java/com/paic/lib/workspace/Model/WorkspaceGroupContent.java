@@ -2,6 +2,8 @@ package com.paic.lib.workspace.Model;
 
 import android.graphics.Color;
 
+import com.paic.lib.workspace.util.DensityUtils;
+
 import java.util.ArrayList;
 
 /**
@@ -23,10 +25,14 @@ public class WorkspaceGroupContent {
 
     @Deprecated
     protected String header_textColor;     //for json
-    private int headerTextColor = Color.WHITE;
+    private int headerTextColor = CellItemStruct.INVALID_VALUE;
 
     public int getHeaderTextColor() {
         return headerTextColor;
+    }
+
+    public boolean headerTextColorEffective() {
+        return CellItemStruct.INVALID_VALUE != this.headerTextColor;
     }
 
     public void setHeaderTextColor(int color) {
@@ -36,7 +42,7 @@ public class WorkspaceGroupContent {
     public float header_textSize = CellItemStruct.INVALID_VALUE;
 
     public boolean header_textSizeEffective() {
-        return CellItemStruct.MIN_TEXT_SIZE < header_textSize;
+        return DensityUtils.effectiveValue(header_textSize);
     }
 
     public float getHeaderTextSize() {
@@ -74,9 +80,12 @@ public class WorkspaceGroupContent {
     public int icon_width = CellItemStruct.INVALID_VALUE;
     public int icon_height = CellItemStruct.INVALID_VALUE;
     protected float cell_title_textSize = CellItemStruct.INVALID_VALUE;
-    protected int cell_title_padding = CellItemStruct.INVALID_VALUE;
-    protected int cell_icon_padding_top = CellItemStruct.INVALID_VALUE;
-    public boolean equal_width = true;
+    @Deprecated
+    protected String cell_title_textColor = null;
+    protected int cellTitle_textColor = CellItemStruct.INVALID_VALUE;
+    protected int cell_container_padding_top = CellItemStruct.INVALID_VALUE;
+    protected int cell_container_inner_margin = CellItemStruct.INVALID_VALUE;
+    protected boolean needFixWidth = false;
     /////////////////////////////////// end:为当前组统一配置 ///////////////////////////////////
 
     public void setName(String name) {

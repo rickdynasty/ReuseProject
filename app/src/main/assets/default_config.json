@@ -1,0 +1,85 @@
+{
+  "workspaceGroups": [
+    {
+      "groupName": "应用系统",
+      "groupId": "1001",
+      "cellItemList": [
+        {
+          "Note_14": "必填项 ==== title ==== ",
+          "title": "市委OA",
+          "icon": "ic_jhoa",
+          "Note_16": "action_type默认是0:uri,[另外1：arouter 路由； 2：URL 网页]",
+          "action_type": "2",
+          "action": "https://www.baidu.com/"
+        },
+        {
+          "title": "掌上会议",
+          "icon": "ic_zshy",
+          "action_type": "2",
+          "action": "https://www.baidu.com/"
+        }
+      ]
+    },
+    {
+      "groupName": "内部信息",
+      "groupId": "1002",
+      "cellItemList": [
+        {
+          "title": "市领导公务活动视频",
+          "icon": "ic_sldgwhdsp",
+          "action_type": "2",
+          "action": "https://www.baidu.com/"
+        },
+        {
+          "title": "信息快报",
+          "icon": "ic_xxkb",
+          "action_type": "2",
+          "action": "https://www.baidu.com/"
+        },
+        {
+          "title": "值班快报",
+          "icon": "ic_zbkb",
+          "action_type": "0",
+          "action": "intent://whatsapp/#Intent;scheme=myapp;package=com.xiaoyu.myapp;S.help_url=http://Fzxing.org;end"
+        },
+        {
+          "title": "媒体报道深圳",
+          "icon": "ic_mtbdsz",
+          "action_type": "1",
+          "action": "/groupmeeting/activity/my_meetting#param:"
+        },
+        {
+          "title": "副省级城市动态",
+          "icon": "ic_fsjzyhd",
+          "action_type": "2",
+          "action": "https://www.baidu.com/"
+        },
+        {
+          "title": "安邦经济研究",
+          "icon": "ic_abjjyj",
+          "card_type": "1",
+          "action_type": "0",
+          "action": "android-app://#Intent;action=android.intent.action.SecondActivity;category=android.intent.category.DEFAULT;S.some=systemFrom;end"
+        }
+      ]
+    },
+    {
+      "groupName": "系统应用",
+      "groupId": "1003",
+      "cellItemList": [
+        {
+          "title": "OA",
+          "icon": "ic_jhoa",
+          "action_type": "0",
+          "action": "android-app://reuse.rick.tws.com/#Intent;action=android.intent.action.SecondActivity;i.some_int=100;end"
+        },
+        {
+          "title": "会议",
+          "icon": "ic_zshy",
+          "action_type": "0",
+          "action": "pazwt://pamo-client/jumpClient?mt=12#retry"
+        }
+      ]
+    }
+  ]
+}

@@ -2,6 +2,9 @@ package com.paic.lib.workspace.Model;
 
 import android.graphics.Color;
 
+import com.paic.lib.workspace.util.DensityUtils;
+import com.paic.lib.workspace.widget.CellItemView;
+
 /**
  * Copyright (C) 2018 pa_zwt Licensed under the Apache License, Version 1.0 (the "License");
  *
@@ -13,6 +16,10 @@ import android.graphics.Color;
  */
 public class CellItemStruct {
     private static final String TAG = CellItemStruct.class.getSimpleName();
+
+    public static final int TITLE_DOWN_CARD_TYPE = 0;   //标题在下
+    public static final int TITLE_ON_CARD_TYPE = 1;     //标题在上
+    public static final int CUSTOMIZED_CARD_TYPE = 2;   //自定义
 
     public static final String METRO_CARDS_PREFIX = "cards";
 
@@ -32,7 +39,7 @@ public class CellItemStruct {
 
     private String title = "";
     private String icon = "";
-    private int card_type = 0;
+    private int card_type = TITLE_DOWN_CARD_TYPE;
 
     private int iconResId = INVALID_VALUE;
     private String shadow_drawable = "";
@@ -56,7 +63,7 @@ public class CellItemStruct {
     private int weight = INVALID_VALUE;
     @Deprecated
     protected String textColor;
-    private int titleTextColor = Color.BLACK;
+    private int titleTextColor = INVALID_VALUE;
 
     protected float textSize = INVALID_VALUE;
 
@@ -67,14 +74,11 @@ public class CellItemStruct {
     public int item_height = INVALID_VALUE;
     public int icon_width = INVALID_VALUE;
     public int icon_height = INVALID_VALUE;
-    protected int title_padding = INVALID_VALUE;
-    protected int icon_padding_top = INVALID_VALUE;
+    protected int container_padding_top = INVALID_VALUE;
+    protected int container_inner_margin = INVALID_VALUE;
 
     protected boolean needFixWidth = false;         //默认自动适配宽度
     protected boolean titleSingleLine = true;       //默认标题只一行显示
-
-    public CellItemStruct() {
-    }
 
     public CellItemStruct(String title, int iconResId, int shadowResId, int cardType, int startColor,
                           int centerColor, int endColor, int actionType, String action, int weight) {
@@ -270,20 +274,24 @@ public class CellItemStruct {
         return MIN_TEXT_SIZE < textSize;
     }
 
-    public boolean titlePaddingEffective() {
-        return title_padding != INVALID_VALUE;
+    public boolean titleTextColorEffective() {
+        return INVALID_VALUE != titleTextColor;
     }
 
-    public int getTitlePadding() {
-        return this.title_padding;
+    public boolean containerPaddingTopEffective() {
+        return DensityUtils.effectiveValue(container_padding_top);
     }
 
-    public boolean iconPaddinTopEffective() {
-        return icon_padding_top != INVALID_VALUE;
+    public int getContainerPaddingTop() {
+        return this.container_padding_top;
     }
 
-    public int getIconPaddingTop() {
-        return this.icon_padding_top;
+    public boolean containerInnerMarginEffective() {
+        return DensityUtils.effectiveValue(container_inner_margin);
+    }
+
+    public int getContainerInnerMargin() {
+        return this.container_inner_margin;
     }
 
     public boolean needFixWidth() {

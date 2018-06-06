@@ -20,6 +20,7 @@ import android.widget.TextView;
 
 import com.paic.lib.workspace.Model.CellItemStruct;
 import com.paic.lib.workspace.R;
+import com.paic.lib.workspace.util.DensityUtils;
 
 /**
  * Copyright (C) 2018 pa_zwt Licensed under the Apache License, Version 1.0 (the "License");
@@ -33,11 +34,7 @@ import com.paic.lib.workspace.R;
 public class CellItemView extends RelativeLayout {
     private static final String TAG = CellItemView.class.getSimpleName();
 
-    public static final int TITLE_ON_CARD_TYPE = 0;     //标题在上
-    public static final int TITLE_DOWN_CARD_TYPE = 1;   //标题在下
-    public static final int CUSTOMIZED_CARD_TYPE = 2;   //自定义
-
-    private int mCardType = TITLE_DOWN_CARD_TYPE;
+    private int mCardType = CellItemStruct.TITLE_DOWN_CARD_TYPE;
 
     private int mActionType = 0;
     private String mAction;
@@ -52,10 +49,11 @@ public class CellItemView extends RelativeLayout {
     private int mTextColor_focus = Color.WHITE;
     private GradientDrawable mGradientDrawable = null;
     private final float mDefaultTextSize;
+    private final int mDefaultTextColor;
 
     //0 - on; 1 - down;
     private final int mDefaultTitleLeftMargin0;
-    private final int getmDefaultTitleMarginIcon;
+    private final int mDefaultContainerInnerMargin;
 
     //For DividerDecoration drawing split lines
     private int mPositionInGroup = -1;
@@ -72,8 +70,9 @@ public class CellItemView extends RelativeLayout {
         super(context, attrs, defStyleAttr);
         mDefaultTitleLeftMargin0 = getResources().getDimensionPixelSize(R.dimen.cell_item_title_margin_left_0);
 
-        getmDefaultTitleMarginIcon = getResources().getDimensionPixelSize(R.dimen.cell_item_title_margin_icon);
-        mDefaultTextSize = 13.0f;
+        mDefaultContainerInnerMargin = getResources().getDimensionPixelSize(R.dimen.cell_item_title_margin_icon);
+        mDefaultTextSize = getResources().getInteger(R.integer.cell_item_title_textSize);
+        mDefaultTextColor = getResources().getColor(R.color.color_cellitem_title_default);
     }
 
     public void setCardType(int cardType) {
@@ -83,8 +82,28 @@ public class CellItemView extends RelativeLayout {
     public void init(CellItemStruct cardStruct) {
         ViewGroup.LayoutParams lp = getLayoutParams();
         if (cardStruct.needFixWidth()) {
+            if (!DensityUtils.effectiveValue(cardStruct.item_width)) {
+                cardStruct.item_width = getResources().getDimensionPixelSize(R.dimen.cell_item_width);
+            }
             lp.width = cardStruct.item_width;
+        } else {
+            lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
         }
+
+        // ========================= begin:如果没有设置大小 统一赋初值 =========================
+        if (!DensityUtils.effectiveValue(cardStruct.item_height)) {
+            cardStruct.item_height = getResources().getDimensionPixelSize(R.dimen.cell_item_height);
+        }
+
+        if (!DensityUtils.effectiveValue(cardStruct.icon_width)) {
+            cardStruct.icon_width = getResources().getDimensionPixelSize(R.dimen.cell_item_cion_size);
+        }
+
+        if (!DensityUtils.effectiveValue(cardStruct.icon_height)) {
+            cardStruct.icon_height = getResources().getDimensionPixelSize(R.dimen.cell_item_cion_size);
+        }
+        // ========================= end:如果没有设置大小 统一赋初值 =========================
+
         lp.height = cardStruct.item_height;
         setLayoutParams(lp);
 
@@ -179,9 +198,14 @@ public class CellItemView extends RelativeLayout {
 
         if (needCreateContainer) {
             switch (mCardType) {
-                case TITLE_ON_CARD_TYPE: {
+                case CellItemStruct.TITLE_ON_CARD_TYPE: {
                     LayoutParams lpContainer = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    lpContainer.addRule(RelativeLayout.CENTER_IN_PARENT);
+                    if (cardStruct.containerPaddingTopEffective()) {
+                        lpContainer.topMargin = cardStruct.getContainerPaddingTop();
+                        lpContainer.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                    } else {
+                        lpContainer.addRule(RelativeLayout.CENTER_IN_PARENT);
+                    }
                     addView(mLinearContainer, lpContainer);
 
                     // add tile view first
@@ -191,14 +215,23 @@ public class CellItemView extends RelativeLayout {
                     mLinearContainer.addView(mTitle, lpTitle);
 
                     LinearLayout.LayoutParams lpIcon = new LinearLayout.LayoutParams(cardStruct.icon_width, cardStruct.icon_height);
-                    lpIcon.topMargin = getmDefaultTitleMarginIcon;
+                    if (cardStruct.containerInnerMarginEffective()) {
+                        lpIcon.topMargin = cardStruct.getContainerInnerMargin();
+                    } else {
+                        lpIcon.topMargin = mDefaultContainerInnerMargin;
+                    }
                     lpIcon.gravity = Gravity.CENTER_HORIZONTAL;
                     mLinearContainer.addView(mIcon, lpIcon);
                 }
                 break;
-                case TITLE_DOWN_CARD_TYPE: {
+                case CellItemStruct.TITLE_DOWN_CARD_TYPE: {
                     LayoutParams lpContainer = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-                    lpContainer.addRule(RelativeLayout.CENTER_IN_PARENT);
+                    if (cardStruct.containerPaddingTopEffective()) {
+                        lpContainer.topMargin = cardStruct.getContainerPaddingTop();
+                        lpContainer.addRule(RelativeLayout.CENTER_HORIZONTAL);
+                    } else {
+                        lpContainer.addRule(RelativeLayout.CENTER_IN_PARENT);
+                    }
                     addView(mLinearContainer, lpContainer);
                     // add icon view first
                     LinearLayout.LayoutParams lpIcon = new LinearLayout.LayoutParams(cardStruct.icon_width, cardStruct.icon_height);
@@ -206,7 +239,11 @@ public class CellItemView extends RelativeLayout {
                     mLinearContainer.addView(mIcon, lpIcon);
 
                     LinearLayout.LayoutParams lpTitle = new LinearLayout.LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-                    lpTitle.topMargin = getmDefaultTitleMarginIcon;
+                    if (cardStruct.containerInnerMarginEffective()) {
+                        lpTitle.topMargin = cardStruct.getContainerInnerMargin();
+                    } else {
+                        lpTitle.topMargin = mDefaultContainerInnerMargin;
+                    }
                     lpTitle.gravity = Gravity.CENTER_HORIZONTAL;
                     mLinearContainer.addView(mTitle, lpTitle);
                 }
@@ -222,7 +259,11 @@ public class CellItemView extends RelativeLayout {
             mTitle.setTextSize(TypedValue.COMPLEX_UNIT_SP, mDefaultTextSize);
         }
 
+        if (!cardStruct.titleTextColorEffective()) {
+            cardStruct.setTitleTextColor(mDefaultTextColor);
+        }
         mTitle.setTextColor(cardStruct.getTitleTextColor());
+
         mTitle.setText(cardStruct.getTitle());
         if (!TextUtils.isEmpty(cardStruct.getIconName())) {
             mIcon.setImageResource(getResources().getIdentifier(cardStruct.getIconName(), "drawable", getContext().getApplicationInfo().packageName));

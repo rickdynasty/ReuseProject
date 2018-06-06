@@ -131,8 +131,8 @@
           "card_type": "0",
           "startColor": "#FFFA5779",
           "endColor": "#FFFD8DA5",
-          "action_type": "0",
-          "action": "点击Card后的去向"
+          "action_type": "2",
+          "action": "pazwt://pamo-client?key1=v1&k2=v2"
         },
         {
           "title": "特别关注",
@@ -141,8 +141,8 @@
           "card_type": "0",
           "startColor": "#FF39B1B7",
           "endColor": "#FF1EDE81",
-          "action_type": "0",
-          "action": "点击Card后的去向"
+          "action_type": "1", //http https
+          "action": "https://url"
         },
         {
           "title": "我的日程",
@@ -151,8 +151,8 @@
           "card_type": "0",
           "startColor": "#FFFF0000",
           "endColor": "#FFFFFF00",
-          "action_type": "0",
-          "action": "点击Card后的去向"
+          "action_type": "0", //路由
+          "action": "/groupmeeting/activity/my_meetting#S.key=value;end"
         }
       ]
     }

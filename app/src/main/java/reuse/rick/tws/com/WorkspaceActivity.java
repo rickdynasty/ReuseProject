@@ -1,7 +1,9 @@
 package reuse.rick.tws.com;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
@@ -44,7 +46,7 @@ public class WorkspaceActivity extends Activity implements IWorkspaceUI, View.On
 
         mWorkspace.setLayoutManager(manager);
         mWorkspace.setAdapter(mAdapter);
-        mPresenter.loadJsonFromAssets(this, "test.json");//workspace//test
+        mPresenter.loadJsonFromAssets(this, "default_config.json");//workspace//test
     }
 
     @Override
@@ -68,5 +70,11 @@ public class WorkspaceActivity extends Activity implements IWorkspaceUI, View.On
         if (v instanceof CellItemView) {
             Toast.makeText(this, "点击了：" + ((CellItemView) v).getTitle(), Toast.LENGTH_SHORT).show();
         }
+
+        String jumpUri="android-app://reuse.rick.tws.com/#Intent;action=android.intent.action.SecondActivity;i.some_int=100;end";
+        String jumpUri2="android-app://#Intent;action=android.intent.action.SecondActivity;category=android.intent.category.DEFAULT;S.some=systemFrom;end";
+        String jumpScheme="pazwt://pamo-client/jumpClient?mt=12#retry";
+
+        PageJump.jumpPageUri(this, jumpUri2);
     }
 }

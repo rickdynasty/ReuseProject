@@ -3,7 +3,6 @@ package com.paic.lib.workspace.Model;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
-import android.util.Log;
 import android.util.SparseBooleanArray;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -96,10 +95,18 @@ public class CellLayoutAdapter extends BaseAdapter<HeaderHolder, CellItemHolder,
     @Override
     protected void onBindGroupHeaderViewHolder(final HeaderHolder holder, final int group) {
         final WorkspaceGroupContent groupContent = groupDataList.get(group);
+        holder.itemView.setBackgroundColor(groupContent.getHeaderBackgroundColor());
+
         holder.titleView.setText(groupContent.getName());
         if (groupContent.header_textSizeEffective()) {
             holder.titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, groupContent.getHeaderTextSize());
         }
+
+        holder.titleView.getPaint().setFakeBoldText(groupContent.getIsHeaderBoldText());
+        if(!groupContent.headerTextColorEffective()) {
+            groupContent.setHeaderTextColor(holder.titleView.getResources().getColor(R.color.workpsace_group_header_textColor));
+        }
+        holder.titleView.setTextColor(groupContent.getHeaderTextColor());
 
         if (groupContent.getIsShrink() && Workspace.GRID_SPANCOUNT * Workspace.GRID_GROUP_OFF_MULTIPLE_SPANCOUNT < groupContent.cellItemList.size()) {
             holder.openView.setVisibility(View.VISIBLE);
