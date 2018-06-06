@@ -1,12 +1,10 @@
 package com.paic.lib.workspace.Model;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.text.TextUtils;
 import android.view.ViewGroup;
 
-import com.paic.lib.workspace.R;
 import com.paic.lib.workspace.util.DensityUtils;
 
 import java.util.ArrayList;
@@ -129,7 +127,7 @@ public class WorkspaceData {
                         itemStruct.setTitleTextColor(Color.parseColor(itemStruct.textColor));
                     } else if (uniformConfig_item_textColor) {
                         itemStruct.setTitleTextColor(content.cellTitle_textColor);
-                    } else{
+                    } else {
                         itemStruct.setTitleTextColor(CellItemStruct.INVALID_VALUE);
                     }
 
@@ -144,15 +142,21 @@ public class WorkspaceData {
 
                     if (!TextUtils.isEmpty(itemStruct.startColor)) {
                         itemStruct.setGradientStartColor(Color.parseColor(itemStruct.startColor));
+                    } else {
+                        itemStruct.setGradientStartColor(CellItemStruct.INVALID_VALUE);
                     }
 
 
                     if (!TextUtils.isEmpty(itemStruct.centerColor)) {
                         itemStruct.setGradientCenterColor(Color.parseColor(itemStruct.centerColor));
+                    } else {
+                        itemStruct.setGradientCenterColor(CellItemStruct.INVALID_VALUE);
                     }
 
                     if (!TextUtils.isEmpty(itemStruct.endColor)) {
                         itemStruct.setGradientEndColor(Color.parseColor(itemStruct.endColor));
+                    } else {
+                        itemStruct.setGradientEndColor(CellItemStruct.INVALID_VALUE);
                     }
 
                     if (DensityUtils.effectiveValue(itemStruct.container_padding_top)) {
