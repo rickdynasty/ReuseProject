@@ -21,7 +21,15 @@ public class CellItemStruct {
     public static final int TITLE_ON_CARD_TYPE = 1;     //标题在上
     public static final int CUSTOMIZED_CARD_TYPE = 2;   //自定义
 
-    public static final String METRO_CARDS_PREFIX = "cards";
+
+    public static final int ACTION_TYPE_URI = 0;
+    public static final int ACTION_TYPE_URL = 1;
+    public static final int ACTION_TYPE_AROUTER = 2;
+    public static final int ACTION_TYPE_CHAT = 3;
+    public static final int ACTION_TYPE_CUSTOM = 4;
+
+    public static final String SEPARATOR_VALUE = ";";       //多个值之间的分隔符
+    public static final String SEPARATOR_VALUATION = "=";    //值属性的赋值分隔符
 
     public static final String CARD_TITLE = "title";
     public static final String CARD_ICON = "icon";
@@ -39,6 +47,8 @@ public class CellItemStruct {
 
     private String title = "";
     private String icon = "";
+    //如果
+    private String icon_url = "";
     private int card_type = TITLE_DOWN_CARD_TYPE;
 
     private int iconResId = INVALID_VALUE;
@@ -59,6 +69,7 @@ public class CellItemStruct {
 
     private int action_type = INVALID_VALUE;
     private String action = "";
+    private String action_extra = "";
 
     private int weight = INVALID_VALUE;
     @Deprecated
@@ -189,6 +200,14 @@ public class CellItemStruct {
 
     public void setAction(String action) {
         this.action = action;
+    }
+
+    public String getActionExtra() {
+        return action_extra;
+    }
+
+    public void setActionExtra(String action_extra) {
+        this.action_extra = action_extra;
     }
 
     public int getWeight() {

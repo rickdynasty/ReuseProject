@@ -95,7 +95,7 @@ public class CellLayoutAdapter extends BaseAdapter<HeaderHolder, CellItemHolder,
     @Override
     protected void onBindGroupHeaderViewHolder(final HeaderHolder holder, final int group) {
         final WorkspaceGroupContent groupContent = groupDataList.get(group);
-        holder.itemView.setBackgroundColor(groupContent.getHeaderBackgroundColor());
+        holder.headerView.setBackgroundColor(groupContent.getHeaderBackgroundColor());
 
         holder.titleView.setText(groupContent.getName());
         if (groupContent.header_textSizeEffective()) {

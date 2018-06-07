@@ -11,6 +11,7 @@ public class HeaderHolder extends RecyclerView.ViewHolder {
     public TextView titleView;
     public TextView openView;
     public ImageView groupIcon;
+    public View headerView;
 
     public HeaderHolder(View itemView) {
         super(itemView);
@@ -21,5 +22,6 @@ public class HeaderHolder extends RecyclerView.ViewHolder {
         titleView = itemView.findViewById(R.id.header_title);
         openView = itemView.findViewById(R.id.header_switch);
         groupIcon = itemView.findViewById(R.id.g_icon);
+        headerView = itemView.findViewById(R.id.workspace_group_header);
     }
 }

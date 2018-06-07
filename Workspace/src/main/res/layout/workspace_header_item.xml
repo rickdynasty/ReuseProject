@@ -10,6 +10,7 @@
         android:background="@color/workspace_header_divider_bg_color" />
 
     <RelativeLayout
+        android:id="@+id/workspace_group_header"
         android:layout_width="match_parent"
         android:layout_height="51dp"
         android:background="@color/paic_white"

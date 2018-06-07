@@ -38,6 +38,7 @@ public class CellItemView extends RelativeLayout {
 
     private int mActionType = 0;
     private String mAction;
+    private String mActionExtra;
 
     private ImageView mBackgroundImage;
     private LinearLayout mLinearContainer = null;   //Add container - mainly for adapting various screens
@@ -114,6 +115,7 @@ public class CellItemView extends RelativeLayout {
 
         mActionType = cardStruct.getActionType();
         mAction = cardStruct.getAction();
+        mActionExtra = cardStruct.getActionExtra();
     }
 
     // Note: This can't be filtered - whether it's already init, RecycleView has a recycle reuse
@@ -353,12 +355,12 @@ public class CellItemView extends RelativeLayout {
         }
     }
 
-    public CharSequence getTitle() {
+    public String getTitle() {
         if (null == mTitle) {
             throw new RuntimeException("The \"null == mTileTv\" scenario is theoretically absent~!");
         }
 
-        return mTitle.getText();
+        return "" + mTitle.getText();
     }
 
     public int getActionType() {
@@ -367,6 +369,10 @@ public class CellItemView extends RelativeLayout {
 
     public String getAction() {
         return mAction;
+    }
+
+    public String getActionExtra() {
+        return mActionExtra;
     }
 
     public void setPositionInGroup(int positionInGroup) {
