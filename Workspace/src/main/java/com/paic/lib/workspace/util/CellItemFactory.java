@@ -47,14 +47,14 @@ public class CellItemFactory {
         switch (type) {
             case NOTIFY_CARD:
                 title = "特别关注";
-                shadowRes = R.drawable.shadow_specialcare;
+                shadowRes = R.drawable.shadow_main_39b1b7;
                 startColor = Color.LTGRAY;
                 endColor = Color.LTGRAY;
                 weight = 2;
                 break;
             case DATE_CARD:
                 title = "我的日程";
-                shadowRes = R.drawable.shadow_black_red;
+                shadowRes = R.drawable.shadow_main_ff9c68;
                 startColor = Color.RED;
                 endColor = Color.RED;
                 weight = 1;
@@ -105,7 +105,7 @@ public class CellItemFactory {
 
             case ATTENDANCE_NOTICE:
                 title = "考勤通知";
-                shadowRes = R.drawable.shadow_blug;
+                shadowRes = R.drawable.shadow_main_fd8da5;
                 iconRes = R.drawable.work_main_task_icon;
                 startColor = 0xFFFA5779;
                 endColor = 0xFFFD8DA5;

@@ -3,20 +3,19 @@
     {
       "groupName": "应用系统",
       "groupId": "1001",
+      "Note": "action_type类型 0：uri、1：Arouter、2：URL、3：Chat",
       "cellItemList": [
         {
-          "Note_14": "必填项 ==== title ==== ",
-          "title": "市委OA",
+          "title": "市委办办公系统",
           "icon": "ic_jhoa",
-          "Note_16": "action_type默认是0:uri,[另外1：arouter 路由； 2：URL 网页]",
-          "action_type": "2",
-          "action": "https://www.baidu.com/"
+          "action_type": "1",
+          "action": "iexoa://"
         },
         {
           "title": "掌上会议",
           "icon": "ic_zshy",
-          "action_type": "2",
-          "action": "https://www.baidu.com/"
+          "action_type": "1",
+          "action": "/groupmeeting/activity/my_meetting"
         }
       ]
     },
@@ -28,58 +27,164 @@
         {
           "title": "市领导公务活动视频",
           "icon": "ic_sldgwhdsp",
-          "action_type": "2",
-          "action": "https://www.baidu.com/"
+          "action_type": "3",
+          "action": "3472469953166165",
+          "action_extra":"public"
         },
         {
           "title": "信息快报",
           "icon": "ic_xxkb",
-          "action_type": "2",
-          "action": "https://www.baidu.com/"
+          "action_type": "3",
+          "action": "3472537705040198",
+          "action_extra":"public"
         },
         {
           "title": "值班快报",
           "icon": "ic_zbkb",
-          "action_type": "0",
-          "action": "intent://whatsapp/#Intent;scheme=myapp;package=com.xiaoyu.myapp;S.help_url=http://Fzxing.org;end"
+          "action_type": "3",
+          "action": "3472562262132300",
+          "action_extra":"public"
         },
         {
           "title": "媒体报道深圳",
           "icon": "ic_mtbdsz",
-          "card_type": "1",
-          "action_type": "1",
-          "action": "/groupmeeting/activity/my_meetting#param:"
+          "action_type": "3",
+          "action": "3472585956192750",
+          "action_extra":"public"
         },
         {
           "title": "副省级城市动态",
           "icon": "ic_fsjzyhd",
-          "action_type": "2",
-          "action": "https://www.baidu.com/"
+          "action_type": "3",
+          "action": "3472606111879013",
+          "action_extra":"public"
         },
         {
           "title": "安邦经济研究",
           "icon": "ic_abjjyj",
-          "card_type": "1",
-          "action_type": "0",
-          "action": "android-app://#Intent;action=android.intent.action.SecondActivity;category=android.intent.category.DEFAULT;S.some=systemFrom;end"
+          "action_type": "3",
+          "action": "3472631378238614",
+          "action_extra":"public"
         }
       ]
     },
     {
-      "groupName": "系统应用",
+      "groupName": "我的应用",
       "groupId": "1003",
+      "isShrink": "true",
       "cellItemList": [
         {
-          "title": "OA",
-          "icon": "ic_jhoa",
-          "action_type": "0",
-          "action": "android-app://reuse.rick.tws.com/#Intent;action=android.intent.action.SecondActivity;i.some_int=100;end"
+          "title": "待办",
+          "icon": "work_main_ic_daiban",
+          "action_type": "2",
+          "Note": "这里没有配置host,如果配置配置host，就需要在代码处根据环境配置",
+          "action": "/mobile/dist/product/index.html#/home/zwttodoList",
+          "shadow_drawable": "shadow_main_52b0ff",
+          "textColor":"#FF00FF00",
+          "action_extra":"public",
+          "startColor": "#FFFF0000",
+          "endColor": "#FFFFFF00"
         },
         {
-          "title": "会议",
-          "icon": "ic_zshy",
+          "title": "督办",
+          "icon": "work_main_task_icon",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/taskList",
+          "shadow_drawable": "shadow_main_39b1b7",
+          "startColor": "#FFFF0000",
+          "endColor": "#FFFFFF00"
+        },
+        {
+          "title": "跟踪",
+          "icon": "work_main_genzong",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/zwtfollowList",
+          "shadow_drawable": "shadow_main_39b1b7",
+          "startColor": "#FF39B1B7",
+          "endColor": "#FF1EDE81",
+          "background": "#FF39B1B7"
+        },
+        {
+          "title": "传阅",
+          "icon": "work_main_chuanyue",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/circularizeList",
+          "shadow_drawable": "shadow_main_ff9c68",
+          "startColor": "#FF39B1B7",
+          "endColor": "#FF1EDE81"
+        },
+        {
+          "title": "特别关注",
+          "icon": "ic_jhoa",
           "action_type": "0",
-          "action": "pazwt://pamo-client/jumpClient?mt=12#retry"
+          "action": "待处理"
+        },
+        {
+          "title": "我的日程",
+          "icon": "ic_zshy",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/myWorkList",
+          "shadow_drawable": "shadow_main_fd8da5",
+          "textColor":"#FFF00FFF",
+          "startColor": "#FF39B1B7",
+          "endColor": "#FF1EDE81"
+        },
+        {
+          "title": "会议管理",
+          "icon": "work_main_ic_hygl",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/meetingList",
+          "shadow_drawable": "shadow_main_d38ffe",
+          "startColor": "#FF39B1B7",
+          "endColor": "#FF1EDE81"
+        },
+        {
+          "title": "领导日程",
+          "icon": "work_main_leader_schedule_icon",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/leaderScheduleList",
+          "shadow_drawable": "shadow_main_52b0ff",
+          "startColor": "#FF39B1B7",
+          "background": "#FF39B1B7"
+        }
+      ]
+    },
+    {
+      "groupName": "办公分组",
+      "groupId": "1004",
+      "cellItemList": [
+        {
+          "title": "待签收",
+          "icon": "work_main_waitsign_icon",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/zwtreceiveList",
+          "background":"#FF39B1B7"
+        },
+        {
+          "title": "归档",
+          "icon": "work_main_collect_icon",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/zwtfinishList",
+          "background":"#FF39B1B7"
+        },
+        {
+          "title": "公务用车",
+          "icon": "work_main_item_car_icon",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/carAppointmy",
+          "background":"#FFFF6451"
+        },
+        {
+          "title": "政府公众号",
+          "icon": "work_main_zf_public",
+          "action_type": "0",
+          "action": "待处理"
+        },
+        {
+          "title": "大型活动",
+          "icon": "work_main_item_big_activity",
+          "action_type": "2",
+          "action": "/mobile/dist/product/index.html#/home/event"
         }
       ]
     }
