@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <animation-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:oneshot="true">
+    <item android:drawable="@drawable/g_icon" />
+    <item android:drawable="@drawable/work_main_chuanyue" />
+    <item android:drawable="@drawable/work_main_genzong" />
+    <item android:drawable="@drawable/work_main_ic_add" />
+    <item android:drawable="@drawable/work_main_ic_daiban" />
+    <item android:drawable="@drawable/work_main_ic_hygl" />
+    <item android:drawable="@drawable/work_main_ic_live" />
+    <item android:drawable="@drawable/work_main_ic_more" />
+    <item android:drawable="@drawable/work_main_ic_rlkq" />
+    <item android:drawable="@drawable/work_main_ic_rsgl" />
+    <item android:drawable="@drawable/work_main_ic_search" />
+    <item android:drawable="@drawable/work_main_ic_task" />
+    <item android:drawable="@drawable/work_main_ic_ywzs" />
+    <item android:drawable="@drawable/work_main_item_big_activity" />
+    <item android:drawable="@drawable/work_main_zf_public" />
+    <item android:drawable="@drawable/bottom_shadow" />
     <item android:drawable="@drawable/ic_abjjyj" />
     <item android:drawable="@drawable/ic_fsjzyhd" />
     <item android:drawable="@drawable/ic_jhoa" />
@@ -12,6 +28,11 @@
     <item android:drawable="@drawable/ic_xxkb" />
     <item android:drawable="@drawable/ic_zbkb" />
     <item android:drawable="@drawable/ic_zshy" />
+    <item android:drawable="@drawable/shadow_main_39b1b7" />
+    <item android:drawable="@drawable/shadow_main_52b0ff" />
+    <item android:drawable="@drawable/shadow_main_d38ffe" />
+    <item android:drawable="@drawable/shadow_main_fd8da5" />
+    <item android:drawable="@drawable/shadow_main_ff9c68" />
     <item android:drawable="@drawable/work_main_collect_icon" />
     <item android:drawable="@drawable/work_main_item_car_icon" />
     <item android:drawable="@drawable/work_main_leader_schedule_icon" />
@@ -21,15 +42,5 @@
     <item android:drawable="@drawable/work_main_voicehelper_icon" />
     <item android:drawable="@drawable/work_main_waitsign_icon" />
     <item android:drawable="@drawable/work_main_yyzs_icon" />
-    <item android:drawable="@drawable/g_icon" />
-    <item android:drawable="@drawable/work_main_ic_add" />
-    <item android:drawable="@drawable/work_main_ic_daiban" />
-    <item android:drawable="@drawable/work_main_ic_hygl" />
-    <item android:drawable="@drawable/work_main_ic_live" />
-    <item android:drawable="@drawable/work_main_ic_more" />
-    <item android:drawable="@drawable/work_main_ic_rlkq" />
-    <item android:drawable="@drawable/work_main_ic_rsgl" />
-    <item android:drawable="@drawable/work_main_ic_search" />
-    <item android:drawable="@drawable/work_main_ic_task" />
-    <item android:drawable="@drawable/work_main_ic_ywzs" />
 </animation-list>
+
