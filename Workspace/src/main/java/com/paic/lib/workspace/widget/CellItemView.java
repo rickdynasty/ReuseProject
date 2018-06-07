@@ -84,18 +84,6 @@ public class CellItemView extends RelativeLayout {
             throw new IllegalArgumentException("cardStruct cannot be empty!");
         }
 
-        ViewGroup.LayoutParams lp = getLayoutParams();
-        if (cardStruct.needFixWidth()) {
-            if (!DensityUtils.effectiveValue(cardStruct.item_width)) {
-                cardStruct.item_width = getResources().getDimensionPixelSize(R.dimen.cell_item_width);
-            }
-            lp.width = cardStruct.item_width;
-        } else {
-            lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
-        }
-        lp.height = cardStruct.item_height;
-        setLayoutParams(lp);
-
         // ========================= begin:如果没有设置大小 统一赋初值 =========================
         if (!DensityUtils.effectiveValue(cardStruct.item_height)) {
             cardStruct.item_height = getResources().getDimensionPixelSize(R.dimen.cell_item_height);
@@ -110,6 +98,18 @@ public class CellItemView extends RelativeLayout {
         }
         // ========================= end:如果没有设置大小 统一赋初值 =========================
 
+        ViewGroup.LayoutParams lp = getLayoutParams();
+        if (cardStruct.needFixWidth()) {
+            if (!DensityUtils.effectiveValue(cardStruct.item_width)) {
+                cardStruct.item_width = getResources().getDimensionPixelSize(R.dimen.cell_item_width);
+            }
+            lp.width = cardStruct.item_width;
+        } else {
+            lp.width = ViewGroup.LayoutParams.WRAP_CONTENT;
+        }
+        lp.height = cardStruct.item_height;
+        setLayoutParams(lp);
+
         initWidget(cardStruct);
 
         mActionType = cardStruct.getActionType();
@@ -120,9 +120,6 @@ public class CellItemView extends RelativeLayout {
     // mechanism, probably the same CellItemView will be init multiple times
     private void initWidget(final CellItemStruct cardStruct) {
         boolean needRestChild = false;
-        if (mCardType != cardStruct.getCardType()) {
-            needRestChild = true;
-        }
         if (null == mLinearContainer) {
             removeAllViews();
 
@@ -134,10 +131,15 @@ public class CellItemView extends RelativeLayout {
 
             needRestChild = true;
         }
+
+        if (mCardType != cardStruct.getCardType()) {
+            needRestChild = true;
+        }
+
         mCardType = cardStruct.getCardType();
 
         //dill gradient background
-        int[] colors = null;
+        int[] colors;
         if (cardStruct.gradientCenterEffective()) {
             colors = new int[]{cardStruct.getGradientStartColor(), cardStruct.getGradientCenterColor(), cardStruct.getGradientEndColor()};
         } else if (cardStruct.gradientEffective()) {
@@ -168,6 +170,12 @@ public class CellItemView extends RelativeLayout {
 
             if (!TextUtils.isEmpty(cardStruct.getShadowResName())) {
                 setBackgroundResource(getResources().getIdentifier(cardStruct.getShadowResName(), "drawable", getContext().getApplicationInfo().packageName));
+            } else {
+                if (cardStruct.bkColorEffective()) {
+                    setBackgroundColor(cardStruct.getBackgroundColor());
+                } else {
+                    setBackgroundColor(Color.WHITE);
+                }
             }
         } else {
             if (null != mBackgroundImage) {
