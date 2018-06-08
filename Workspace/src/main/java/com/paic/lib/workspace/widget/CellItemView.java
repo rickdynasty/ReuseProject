@@ -58,6 +58,7 @@ public class CellItemView extends RelativeLayout {
 
     //For DividerDecoration drawing split lines
     private int mPositionInGroup = -1;
+    private int mBrothersCount = 1;
 
     public CellItemView(Context context) {
         this(context, null);
@@ -381,5 +382,13 @@ public class CellItemView extends RelativeLayout {
 
     public int getPositionInGroup() {
         return mPositionInGroup;
+    }
+
+    public void setBrothersCount(int brothersCount) {
+        mBrothersCount = brothersCount;
+    }
+
+    public boolean isLast() {
+        return mBrothersCount <= mPositionInGroup + 1;
     }
 }

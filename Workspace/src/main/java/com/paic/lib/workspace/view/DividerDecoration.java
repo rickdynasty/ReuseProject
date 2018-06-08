@@ -10,7 +10,6 @@ import android.view.View;
 
 import com.paic.lib.workspace.R;
 import com.paic.lib.workspace.widget.CellItemView;
-import com.paic.lib.workspace.widget.Workspace;
 
 public class DividerDecoration extends RecyclerView.ItemDecoration {
 
@@ -65,6 +64,15 @@ public class DividerDecoration extends RecyclerView.ItemDecoration {
                     bottom = top + dividerHeight;
                     c.drawRect(left, top, right, bottom, dividerPaint);
                 }
+
+                //如果不是最后一个需要绘制下边[会存在和上面重复的部分....]
+                if (!cellItemView.isLast()) {
+                    left = view.getLeft();
+                    top = view.getBottom();
+                    right = view.getRight() + dividerHeight;
+                    bottom = top + dividerHeight;
+                    c.drawRect(left, top, right, bottom, dividerPaint);
+                }
             } else {
                 if (!firstline) {
                     // 绘制上边
@@ -75,9 +83,10 @@ public class DividerDecoration extends RecyclerView.ItemDecoration {
                     c.drawRect(left, top, right, bottom, dividerPaint);
                 }
 
+                // 绘制右边
                 left = view.getRight();
                 top = view.getTop() - dividerHeight;
-                right = view.getRight() + dividerHeight;
+                right = left + dividerHeight;
                 bottom = view.getBottom() + dividerHeight;
                 c.drawRect(left, top, right, bottom, dividerPaint);
             }

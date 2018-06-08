@@ -45,6 +45,10 @@ public class WorkspaceGroupContent {
         return DensityUtils.effectiveValue(header_textSize);
     }
 
+    public void setHeaderTextSize(int size) {
+        this.header_textSize = size;
+    }
+
     public float getHeaderTextSize() {
         return header_textSize;
     }

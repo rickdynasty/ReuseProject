@@ -22,5 +22,6 @@
     <dimen name="workspace_header_divider_height">10dp</dimen>
 
     <!-- 统一由内部转sp -->
+    <integer name="workspace_group_header_textSize">15</integer>
     <integer name="cell_item_title_textSize">13</integer>
 </resources>

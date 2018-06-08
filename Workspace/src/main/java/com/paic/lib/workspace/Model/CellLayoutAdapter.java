@@ -98,12 +98,14 @@ public class CellLayoutAdapter extends BaseAdapter<HeaderHolder, CellItemHolder,
         holder.headerView.setBackgroundColor(groupContent.getHeaderBackgroundColor());
 
         holder.titleView.setText(groupContent.getName());
-        if (groupContent.header_textSizeEffective()) {
-            holder.titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, groupContent.getHeaderTextSize());
+        if (!groupContent.header_textSizeEffective()) {
+            groupContent.setHeaderTextSize(holder.titleView.getResources().getInteger(R.integer.workspace_group_header_textSize));
         }
+        holder.titleView.setTextSize(TypedValue.COMPLEX_UNIT_SP, groupContent.getHeaderTextSize());
 
         holder.titleView.getPaint().setFakeBoldText(groupContent.getIsHeaderBoldText());
-        if(!groupContent.headerTextColorEffective()) {
+
+        if (!groupContent.headerTextColorEffective()) {
             groupContent.setHeaderTextColor(holder.titleView.getResources().getColor(R.color.workpsace_group_header_textColor));
         }
         holder.titleView.setTextColor(groupContent.getHeaderTextColor());
@@ -145,6 +147,7 @@ public class CellLayoutAdapter extends BaseAdapter<HeaderHolder, CellItemHolder,
     protected void onBindItemViewHolder(CellItemHolder holder, int group, int position) {
         final CellItemStruct itemStruct = groupDataList.get(group).cellItemList.get(position);
         holder.card.init(itemStruct);
+        holder.card.setBrothersCount(getItemCountForGroup(group));
         holder.card.setPositionInGroup(position);
 
         if (null != mCellItemOnClickListener) {
