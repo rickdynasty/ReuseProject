@@ -37,7 +37,7 @@ public class SecondActivity extends Activity {
             @Override
             public void onClick(View v) {
                 try {
-                    HackClipboardManager.hook2();
+                    HackClipboardManager.installAnotherPos();
                     toastShow("Hook 2 success!");
                     hookBtn2.setEnabled(false);
                 } catch (Exception e) {
