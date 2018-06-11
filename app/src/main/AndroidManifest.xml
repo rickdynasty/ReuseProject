@@ -9,7 +9,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".WorkspaceActivity">
+        <activity android:name=".SecondActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".SecondActivity">
+        <activity android:name=".WorkspaceActivity">
             <intent-filter>
                 <action android:name="android.intent.action.SecondActivity" />
                 <category android:name="android.intent.category.DEFAULT" />

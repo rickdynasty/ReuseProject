@@ -1,5 +1,7 @@
 package reuse.rick.tws.com.clipboard;
 
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -7,6 +9,8 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 import java.util.HashMap;
+
+import reuse.rick.tws.com.TheApplication;
 
 /**
  * 剪贴板Hook帮助类

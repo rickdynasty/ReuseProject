@@ -1,6 +1,8 @@
 package reuse.rick.tws.com;
 
 import android.app.Activity;
+import android.content.ClipboardManager;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.net.Uri;
@@ -76,5 +78,8 @@ public class WorkspaceActivity extends Activity implements IWorkspaceUI, View.On
         String jumpScheme="pazwt://pamo-client/jumpClient?mt=12#retry";
 
         PageJump.jumpPageUri(this, jumpUri2);
+
+        ClipboardManager clipboardManager = (ClipboardManager)getSystemService(Context.CLIPBOARD_SERVICE);
+        clipboardManager.setText("wewer");
     }
 }

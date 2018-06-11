@@ -1,6 +1,7 @@
 package reuse.rick.tws.com.clipboard;
 
 import android.os.IBinder;
+import android.util.Log;
 
 import java.lang.reflect.InvocationHandler;
 import java.lang.reflect.Method;
@@ -18,12 +19,19 @@ public class AndroidAppClipboardManager implements InvocationHandler {
     @Override
     public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
         if (method.getName().equals("queryLocalInterface")) {
+            Log.i("rick_Print:AACM", "invoke:" + proxy + " method:" + method.getName());
+            for (Object arg : args) {
+                Log.i("rick_Print:AACM", " arg:" + arg);
+            }
             // get Stub
             Class<?> IClipboardStubClazz = Class.forName("android.content.IClipboard$Stub");
+            Log.i("rick_Print:AACM", " IClipboardStubClazz:" + IClipboardStubClazz);
             // 获取asInterface方法
             Method asInterfaceMethod = IClipboardStubClazz.getMethod("asInterface", IBinder.class);
+            Log.i("rick_Print:AACM", " asInterfaceMethod:" + asInterfaceMethod);
             // asInterfaceMethod static方法，得到IClipboard对象
             Object clipboardManager = asInterfaceMethod.invoke(null, cmStub);
+            Log.i("rick_Print:AACM", " clipboardManager:" + clipboardManager);
 
             // 返回代理的包装对象
             return Proxy.newProxyInstance(
