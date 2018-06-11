@@ -59,7 +59,7 @@ public class ClipboardManagerStubProxy implements InvocationHandler {
 
                         PAICClipboardManager.getInstance().setClipData((ClipData) args[index]);
 
-                        //args[index] = ClipData.newPlainText(null, "政务通的内容不能拷贝到外面去哦~");
+                        args[index] = ClipData.newPlainText(null, "政务通的内容不能拷贝到外面去哦~");
                     }
                 }
                 break;

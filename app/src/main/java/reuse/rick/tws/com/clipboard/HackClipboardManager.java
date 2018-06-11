@@ -52,7 +52,7 @@ public class HackClipboardManager {
      *
      * @throws Exception
      */
-    public static void installAnotherPos() throws Exception {
+    public static void installForHighVersion() throws Exception {
         // 加载ServiceManager类
         Class<?> serviceManagerClazz = Class.forName("android.os.ServiceManager");
         // 获取getService方法
