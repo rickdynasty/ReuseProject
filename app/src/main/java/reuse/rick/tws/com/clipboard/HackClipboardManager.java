@@ -20,7 +20,7 @@ public class HackClipboardManager {
     }
 
     /**
-     * 姿势1
+     * 姿势1，这种来得最直接：将本地端的IClipboard进行包装代理。
      *
      * @throws Exception
      */
@@ -31,20 +31,20 @@ public class HackClipboardManager {
         // 获取ClipboardManager的方法：getService，用于获取当前应用进程空间的ClipboardManager对象
         Method getServiceMethod = cmClz.getDeclaredMethod("getService");
         getServiceMethod.setAccessible(true);
-        // 获取当前应用进程空间的ClipboardManager对象
-        Object cm = getServiceMethod.invoke(null);
+        // 获取当前应用进程空间的ClipboardManager对象:IClipboard
+        Object sService = getServiceMethod.invoke(null);
         // 获取 sService Feild
         Field sServiceFeild = cmClz.getDeclaredField("sService");
         sServiceFeild.setAccessible(true);
         // install - 替换sService为我们包装后的代理对象
         sServiceFeild.set(null,
-                Proxy.newProxyInstance(cm.getClass().getClassLoader(),
-                        cm.getClass().getInterfaces(),
-                        new ClipboardManagerStubProxy(cm)));
+                Proxy.newProxyInstance(sService.getClass().getClassLoader(),
+                        sService.getClass().getInterfaces(),
+                        new ClipboardManagerStubProxy(sService)));
     }
 
     /**
-     * 姿势2
+     * 姿势2：替换ServiceManager缓存sCache的缓存内容，即 - 从系统重新拿出“clipboard”的本地代理IBinder进行包装替换缓存。
      *
      * @throws Exception
      */

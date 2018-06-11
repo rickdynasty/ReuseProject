@@ -8,7 +8,7 @@ import java.lang.reflect.Proxy;
 
 public class AndroidAppClipboardManager implements InvocationHandler {
 
-    // 进程空间原生的ClipboardManager
+    // 系统端的ClipboardManager在进程空间本地端的代理
     private IBinder cmStub;
 
     public AndroidAppClipboardManager(IBinder cmStub) {
