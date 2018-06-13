@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+
+    <!-- 统一由内部转sp -->
+    <integer name="workspace_group_header_textSize">15</integer>
+    <integer name="cell_item_title_textSize">13</integer>
+
+    <!---->
+    <integer name="screen_transition_duration_horizontal">350</integer>
+</resources>

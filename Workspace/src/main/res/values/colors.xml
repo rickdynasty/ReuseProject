@@ -15,4 +15,11 @@
     <color name="workspace_header_divider_bg_color">#EDF2FF</color>
     <color name="color_cellitem_title_default">#FF67708C</color>
     <color name="color_cellitem_background_default">@color/paic_white</color>
+    <color name="home_bottom_tab_text_default_color">@color/paic_black</color>
+    <color name="home_bottom_tab_text_focus_color">#46dc5f</color>
+
+    <!-- 页面标题栏、工具栏背景色 -->
+    <color name="paic_bar_background">#F4F4F4</color>
+    <color name="lotter_fiter_text">#646E8A</color>
+    <color name="backgroud_common">#13519D</color>
 </resources>

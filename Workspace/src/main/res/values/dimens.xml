@@ -20,8 +20,10 @@
     <dimen name="cell_item_title_margin_left_0">12dp</dimen>
     <dimen name="cell_item_title_margin_icon">9dp</dimen>
     <dimen name="workspace_header_divider_height">10dp</dimen>
-
-    <!-- 统一由内部转sp -->
-    <integer name="workspace_group_header_textSize">15</integer>
-    <integer name="cell_item_title_textSize">13</integer>
+    <dimen name="home_bottom_tab_height">47dp</dimen>
+    <!-- hotseat -->
+    <dimen name="cell_item_padding_top">6dp</dimen>
+    <dimen name="home_bottom_tab_img_width">25dp</dimen>
+    <dimen name="home_bottom_tab_img_height">25dp</dimen>
+    <dimen name="hotseat_cellitem_message_tip_height">16dp</dimen>
 </resources>

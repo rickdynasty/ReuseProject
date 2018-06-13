@@ -1,24 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:fadingEdge="vertical"
-        android:scrollbars="vertical">
-
-        <com.paic.lib.workspace.widget.Workspace
-            android:id="@+id/navigation_area"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-    </ScrollView>
+    <FrameLayout
+        android:id="@+id/home_fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="20dp"
-        android:layout_gravity="bottom"
+        android:layout_marginTop="-20dp"
         android:scaleType="fitXY"
-        android:src="@drawable/bottom_shadow"/>
-</FrameLayout>
+        android:src="@drawable/bottom_shadow" />
+
+    <com.paic.lib.workspace.widget.Hotseat
+        android:id="@+id/home_bottom_tab"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_bottom_tab_height"
+        android:background="@color/paic_bar_background" />
+</LinearLayout>
