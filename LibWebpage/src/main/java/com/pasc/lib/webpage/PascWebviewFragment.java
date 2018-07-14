@@ -3,9 +3,7 @@ package com.pasc.lib.webpage;
 import android.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
@@ -16,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.pasc.lib.webpage.util.FileUiUtils;
-import com.pasc.lib.webpage.util.Utils;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
@@ -36,8 +33,6 @@ public class PascWebviewFragment extends BaseFragment {
     ValueAnimator mValueAnimator = null;
     private ProgressBar mProgressbar;
     private int mCurrentProgress;
-
-    public Handler mHandler = null; //baseFragment
     /**
      * 加载地址
      */
@@ -76,7 +71,10 @@ public class PascWebviewFragment extends BaseFragment {
      */
     private void initConfig() {
         initConfigSetting();
-        initConfigWebClient();
+
+        mWebView.setWebChromeClient(mWebChromeClient);
+        mWebView.setWebViewClient(mWebViewClient);
+//        mWebView.addJavascriptInterface(plugin, JAVASCRIPT_NAME);
     }
 
     public boolean isLoadFinish() {
@@ -85,62 +83,44 @@ public class PascWebviewFragment extends BaseFragment {
 
     private void initConfigSetting() {
         if (mActivity != null) {
-//            String userAgent;
-//            String version = Utils.getLocalVersionName(mActivity);
-//            mWebView.requestFocus(View.FOCUS_DOWN);// 手动加入输入焦点, 有些手机不支持键盘弹出
+            mWebView.requestFocus(View.FOCUS_DOWN);// 手动加入输入焦点, 有些手机不支持键盘弹出
             WebSettings settings = mWebView.getSettings();
 
-//            settings.setSavePassword(false);//h5界面不准保存密码
+            settings.setSavePassword(false);//h5界面不准保存密码
 
-            settings.setJavaScriptEnabled(true);
+            mWebView.getSettings().setJavaScriptEnabled(true);
 
-//            settings.setUseWideViewPort(true);
-//            settings.setLoadWithOverviewMode(true);
-//            settings.setBuiltInZoomControls(true);
-//            settings.setDisplayZoomControls(false);
-//
+            settings.setUseWideViewPort(true);
+            settings.setLoadWithOverviewMode(true);
+            settings.setBuiltInZoomControls(true);
+            settings.setDisplayZoomControls(false);
+
+//            String userAgent;
+//            String version = Utils.getLocalVersionName(mActivity);
 //            userAgent = " PAChat(Android APP/" + version + " Build/" + version + " pasc)";
-//
 //            settings.setUserAgentString(settings.getUserAgentString() + userAgent);
-//            settings.setAppCacheEnabled(true);
-//
-//            String appCachePath = FileUiUtils.getExternalCacheDir(mActivity).getAbsolutePath();
-//            Log.d(TAG, "appCachePath::" + appCachePath);
-//            settings.setAppCachePath(appCachePath);
-//            settings.setAppCacheMaxSize(100 * 1024 * 1024);
-//            settings.setDatabaseEnabled(true);
-//            settings.setDomStorageEnabled(true);
-//            settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-//            settings.setAllowFileAccess(true);
-//            setWebContentsDebuggingEnabled();
-//            if (Build.VERSION.SDK_INT >= 19) {
-//                mWebView.getSettings().setLoadsImagesAutomatically(true);
-//            } else {
-//                mWebView.getSettings().setLoadsImagesAutomatically(false);
-//            }
-//            mWebView.setDownloadListener(new MyWebViewDownLoadListener());
+            settings.setAppCacheEnabled(true);
+
+            String appCachePath = FileUiUtils.getExternalCacheDir(mActivity).getAbsolutePath();
+            Log.d(TAG, "appCachePath::" + appCachePath);
+            settings.setAppCachePath(appCachePath);
+            settings.setAppCacheMaxSize(100 * 1024 * 1024);
+            settings.setDatabaseEnabled(true);
+            settings.setDomStorageEnabled(true);
+            settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+            settings.setAllowFileAccess(true);
+            setWebContentsDebuggingEnabled();
+            if (Build.VERSION.SDK_INT >= 19) {
+                mWebView.getSettings().setLoadsImagesAutomatically(true);
+            } else {
+                mWebView.getSettings().setLoadsImagesAutomatically(false);
+            }
+            mWebView.setDownloadListener(new MyWebViewDownLoadListener());
 
             // 加载url
 //            mWebView.loadUrl("file:///android_asset/test.html");
             mWebView.loadUrl("http://news.baidu.com/");
         }
-    }
-
-    /**
-     * 添加注入对象，对象名称"android"
-     */
-    private void initConfigWebClient() {
-        mWebView.setWebChromeClient(mWebChromeClient);
-        mWebView.setWebViewClient(mWebViewClient);
-//        if (plugin != null) {
-//            mWebView.addJavascriptInterface(plugin, JAVASCRIPT_NAME);
-//        } else {
-//            BasePlugin basePlugin = new BasePlugin();
-//            basePlugin.setHandler(mHandler);
-//            basePlugin.setWebviewFragment(this);
-//            basePlugin.setWebView(mWebView);
-//            mWebView.addJavascriptInterface(basePlugin, JAVASCRIPT_NAME);
-//        }
     }
 
     private WebChromeClient mWebChromeClient = new WebChromeClient() {

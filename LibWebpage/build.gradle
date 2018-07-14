@@ -25,5 +25,5 @@ dependencies {
     implementation rootProject.ext.dependencies.appcompat_v7
     implementation rootProject.ext.dependencies.recyclerview_v7
     implementation rootProject.ext.dependencies.constraint_layout
-    api files('libs/tbs_sdk_thirdapp_v3.6.0.1234_43608.jar')
+    implementation files('libs/tbs_sdk_thirdapp_v3.6.0.1234_43608.jar')
 }
