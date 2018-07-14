@@ -35,7 +35,6 @@ public class PascWebviewFragment extends BaseFragment implements WebChromeClient
      * 加载地址
      */
     private String mUrl = "";
-    private boolean isLoadFinish = false;
 
 
     @Override
@@ -61,7 +60,7 @@ public class PascWebviewFragment extends BaseFragment implements WebChromeClient
         if (null != mWebView.getBridgeWebChromeClient()) {
             mWebView.getBridgeWebChromeClient().setWebChromeClientCallback(this);
         }
-        
+
         if (mActivity != null) {
             mWebView.setDownloadListener(new MyWebViewDownLoadListener());
 
@@ -181,7 +180,7 @@ public class PascWebviewFragment extends BaseFragment implements WebChromeClient
 
     @Override
     public boolean onBackPressed() {
-        if (isLoadFinish && mWebView.canGoBack()) {/*&& !isDirectlyFinish*/
+        if (mWebView.isLoadFinish() && mWebView.canGoBack()) {/*&& !isDirectlyFinish*/
 //            //获取历史列表
 //            WebBackForwardList mWebBackForwardList = mWebView.copyBackForwardList();
 //            //判断当前历史列表是否最顶端,其实canGoBack已经判断过

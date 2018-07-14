@@ -37,10 +37,19 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
     }
 
     private BridgeWebChromeClient mBridgeWebChromeClient = null;
+    private BridgeWebViewClient mBridgeWebViewClient = null;
 
     public BridgeWebChromeClient getBridgeWebChromeClient() {
         sureWebChromeClient();
         return mBridgeWebChromeClient;
+    }
+
+    public boolean isLoadFinish() {
+        if (null != mBridgeWebViewClient) {
+            return mBridgeWebViewClient.isLoadFinish();
+        }
+
+        return true;
     }
 
     public void setStartupMessage(List<Message> startupMessage) {
@@ -113,8 +122,15 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
             setWebContentsDebuggingEnabled(true);
         }
 
-        this.setWebViewClient(new BridgeWebViewClient(this));
+        sureWebViewClient();
         sureWebChromeClient();
+    }
+
+    private void sureWebViewClient() {
+        if (null == mBridgeWebViewClient) {
+            mBridgeWebViewClient = new BridgeWebViewClient(this);
+            this.setWebViewClient(mBridgeWebViewClient);
+        }
     }
 
     private void sureWebChromeClient() {
