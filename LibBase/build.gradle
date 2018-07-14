@@ -1,33 +1,25 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 
 android {
     compileSdkVersion rootProject.ext.android.compileSdkVersion
     buildToolsVersion rootProject.ext.android.buildToolsVersion
+
     defaultConfig {
-        applicationId "reuse.rick.tws.com"
         minSdkVersion rootProject.ext.android.minSdkVersion
         targetSdkVersion rootProject.ext.android.targetSdkVersion
         versionCode rootProject.ext.android.versionCode
         versionName rootProject.ext.android.versionName
-
-        resConfigs "en", "de", "es"
-        flavorDimensions "versionCode"
-        ndk { abiFilters "armeabi" }
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
 }
 
 dependencies {
-    implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation rootProject.ext.dependencies.appcompat_v7
-    implementation rootProject.ext.dependencies.recyclerview_v7
-    implementation rootProject.ext.dependencies.constraint_layout
-    implementation rootProject.ext.dependencies.gson
-    implementation project(':Workspace')
-    implementation project(':LibWebpage')
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
 }

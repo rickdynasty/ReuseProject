@@ -21,6 +21,7 @@ import com.paic.lib.workspace.view.DividerDecoration;
 import com.paic.lib.workspace.view.IWorkspaceUI;
 import com.paic.lib.workspace.widget.CellItemView;
 import com.paic.lib.workspace.widget.Workspace;
+import com.pasc.lib.webpage.PascWebviewActivity;
 
 public class WorkspaceFragment extends Fragment implements IWorkspaceUI, View.OnClickListener {
     private static final String TAG = WorkspaceFragment.class.getSimpleName();
@@ -69,14 +70,16 @@ public class WorkspaceFragment extends Fragment implements IWorkspaceUI, View.On
             Toast.makeText(getActivity(), "点击了：" + ((CellItemView) v).getTitle(), Toast.LENGTH_SHORT).show();
         }
 
-        String jumpUri = "android-app://reuse.rick.tws.com/#Intent;action=android.intent.action.SecondActivity;i.some_int=100;end";
-        String jumpUri2 = "android-app://#Intent;action=android.intent.action.SecondActivity;category=android.intent.category.DEFAULT;S.some=systemFrom;end";
-        String jumpScheme = "pazwt://pamo-client/jumpClient?mt=12#retry";
+//        String jumpUri = "android-app://reuse.rick.tws.com/#Intent;action=android.intent.action.SecondActivity;i.some_int=100;end";
+////        String jumpUri2 = "android-app://#Intent;action=android.intent.action.SecondActivity;category=android.intent.category.DEFAULT;S.some=systemFrom;end";
+////        String jumpScheme = "pazwt://pamo-client/jumpClient?mt=12#retry";
+////
+////        PageJump.jumpPageUri(getActivity(), jumpUri2);
+////
+////        ClipboardManager clipboardManager = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
+////        clipboardManager.setText("wewer");
 
-        PageJump.jumpPageUri(getActivity(), jumpUri2);
-
-        ClipboardManager clipboardManager = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
-        clipboardManager.setText("wewer");
+        PascWebviewActivity.startWebviewActivity(getActivity());
     }
 
     @Override
