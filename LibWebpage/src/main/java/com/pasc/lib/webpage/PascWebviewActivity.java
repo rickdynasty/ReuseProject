@@ -15,7 +15,7 @@ import android.view.WindowManager;
 
 import com.pasc.lib.webpage.util.WebViewVirtualBoardAndInputTools;
 
-public class PascWebviewActivity extends FragmentActivity {
+final public class PascWebviewActivity extends FragmentActivity {
     private PascWebviewFragment mWebviewFragment;
 
     // 启动WebviewActivity

@@ -1,1 +1,1 @@
-include ':app', ':Workspace', ':LibBase', ':BusinessHybrid', ':LibWebpage'
+include ':app', ':Workspace', ':LibBase', ':LibWebpage'

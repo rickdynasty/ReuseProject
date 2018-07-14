@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.tencent.smtt.sdk.WebView
+        <com.pasc.lib.webpage.BridgeWebView
             android:id="@+id/pase_webview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
