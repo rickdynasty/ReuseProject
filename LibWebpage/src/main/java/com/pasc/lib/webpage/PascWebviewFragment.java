@@ -73,6 +73,7 @@ public class PascWebviewFragment extends BaseFragment implements WebChromeClient
                 @Override
                 public void handler(String data, CallBackFunction function) {
                     Toast.makeText(getActivity(), "PASC.app.webControlBackItem：" + data, Toast.LENGTH_LONG).show();
+                    function.onCallBack("Native get 到了(*￣︶￣)");
                 }
 
             });

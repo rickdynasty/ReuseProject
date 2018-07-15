@@ -30,7 +30,12 @@
     />
 </p>
 <p>
-    <input type="button" id="webControlBackItem" value="调用Native方法_webControlBackItem" onclick="webControlBackItem();"
+    <input type="button" id="webControlBackItem" value="调用Native方法_webControlBackItem"
+           onclick="webControlBackItem();"
+    />
+</p>
+<p>
+    <input type="button" id="webForTestError" value="webForTestError" onclick="webForTestError();"
     />
 </p>
 <p>
@@ -86,6 +91,28 @@
             window.WebViewJavascriptBridge.callHandler(
                 'PASC.app.webControlBackItem'
                 , options
+                ,function(responseData) {
+                    document.getElementById("show").innerHTML = "send get responseData from java, data = " + responseData
+                }
+                , function(res) {
+                    alert("callback succ="+JSON.stringify(res));
+                }
+                , function(err) {
+                    alert("callback error="+JSON.stringify(err));
+                }
+            );
+        }
+
+
+        function webForTestError() {
+            var options = {
+                isWebControlBackItem:true,
+                parm:'需要传递的参数'
+            }
+
+            window.WebViewJavascriptBridge.callHandler(
+                'PASC.app.webForTestError'
+                , options
                 , function(res) {
                         alert("callback succ="+JSON.stringify(res));
                     }, function(err) {
@@ -137,6 +164,7 @@
                 }
             });
         })
+
 
 
 </script>
