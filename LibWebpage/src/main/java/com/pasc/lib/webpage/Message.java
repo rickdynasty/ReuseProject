@@ -10,10 +10,12 @@ import org.json.JSONTokener;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * data of bridge
- *
- * @author haoqing
+/*
+ * Copyright (C) 2018 pasc Licensed under the Apache License, Version 1.0 (the "License");
+ * @author chenshangyong872
+ * @date 2018-07-15
+ * @des js与Native通讯内容的封装
+ * @version 1.0
  */
 public class Message {
 
@@ -21,7 +23,7 @@ public class Message {
     private String responseId; //responseId
     private String responseData; //responseData
     private String data; //data of message
-    private String handlerName; //name of handler
+    private String protocolName; //name of handler
 
     private final static String CALLBACK_ID_STR = "callbackId";
     private final static String RESPONSE_ID_STR = "responseId";
@@ -62,11 +64,11 @@ public class Message {
     }
 
     public String getHandlerName() {
-        return handlerName;
+        return protocolName;
     }
 
-    public void setHandlerName(String handlerName) {
-        this.handlerName = handlerName;
+    public void setHandlerName(String protocolName) {
+        this.protocolName = protocolName;
     }
 
     public String toJson() {

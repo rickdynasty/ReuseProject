@@ -20,8 +20,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
 /**
- * 如果要自定义WebViewClient必须要集成此类
- * Created by bruce on 10/28/15.
+ * Copyright (C) 2018 pasc Licensed under the Apache License, Version 1.0 (the "License");
+ * <p>
+ * hybird内核自定义WebViewClient，主要完成url拦截分发与WebView的行为状态监听
+ *
+ * @author chenshangyong872
+ * @version 1.0
+ * @date 2018-07-15
  */
 public class PascWebViewClient extends WebViewClient {
 

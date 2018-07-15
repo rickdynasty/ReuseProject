@@ -181,7 +181,7 @@ public class PascWebView extends WebView implements WebViewJavascriptBridge {
         if (!TextUtils.isEmpty(handlerName)) {
             m.setHandlerName(handlerName);
         }
-        
+
         queueMessage(m);
     }
 

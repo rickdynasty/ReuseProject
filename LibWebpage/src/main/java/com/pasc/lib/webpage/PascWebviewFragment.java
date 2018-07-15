@@ -13,8 +13,8 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 
 import com.pasc.lib.webpage.behavior.BehaviorManager;
-import com.pasc.lib.webpage.webview.PascWebView;
 import com.pasc.lib.webpage.callback.WebChromeClientCallback;
+import com.pasc.lib.webpage.webview.PascWebView;
 import com.tencent.smtt.sdk.DownloadListener;
 import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebBackForwardList;

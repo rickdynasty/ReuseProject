@@ -15,6 +15,15 @@ import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 
+/**
+ * Copyright (C) 2018 pasc Licensed under the Apache License, Version 1.0 (the "License");
+ * <p>
+ * hybird内核自定义WebChromeClient，主要完成JsAlert原生窗口化与WebView的加载进度和文件get
+ *
+ * @author chenshangyong872
+ * @version 1.0
+ * @date 2018-07-15
+ */
 public class PascWebChromeClient extends WebChromeClient {
     private final String TAG = PascWebChromeClient.class.getSimpleName();
 
