@@ -1,4 +1,4 @@
-package com.pasc.lib.webpage;
+package com.pasc.lib.webpage.webview;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -7,14 +7,16 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 
+import com.pasc.lib.webpage.R;
+import com.pasc.lib.webpage.callback.WebChromeClientCallback;
 import com.tencent.smtt.export.external.interfaces.IX5WebChromeClient;
 import com.tencent.smtt.export.external.interfaces.JsResult;
 import com.tencent.smtt.sdk.ValueCallback;
 import com.tencent.smtt.sdk.WebChromeClient;
 import com.tencent.smtt.sdk.WebView;
 
-public class BridgeWebChromeClient extends WebChromeClient {
-    private final String TAG = BridgeWebChromeClient.class.getSimpleName();
+public class PascWebChromeClient extends WebChromeClient {
+    private final String TAG = PascWebChromeClient.class.getSimpleName();
 
     private Context mContext = null;
     private WebChromeClientCallback mCallback = null;

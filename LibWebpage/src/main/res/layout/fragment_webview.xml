@@ -17,7 +17,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <com.pasc.lib.webpage.BridgeWebView
+        <com.pasc.lib.webpage.webview.PascWebView
             android:id="@+id/pase_webview"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

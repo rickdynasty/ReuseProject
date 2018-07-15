@@ -1,4 +1,4 @@
-package com.pasc.lib.webpage;
+package com.pasc.lib.webpage.callback;
 
 import android.net.Uri;
 

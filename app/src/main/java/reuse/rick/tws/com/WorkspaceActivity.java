@@ -4,6 +4,8 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
@@ -19,6 +21,7 @@ import com.paic.lib.workspace.Model.HotseatDisplayItem;
 import com.paic.lib.workspace.ToastFragment;
 import com.paic.lib.workspace.widget.Hotseat;
 import com.paic.lib.workspace.widget.HotseatItemView;
+import com.pasc.lib.webpage.behavior.BehaviorManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -55,6 +58,8 @@ public class WorkspaceActivity extends FragmentActivity implements Hotseat.OnHot
     // 设置下标参数
     protected static final String BUNDLE_TAB_INDEX = "bundle_tab_index";
 
+    private Handler mH;
+
     public static WorkspaceActivity getInstance() {
         return mInstance;
     }
@@ -85,7 +90,25 @@ public class WorkspaceActivity extends FragmentActivity implements Hotseat.OnHot
 
         mInstance = this;
 
+        sureH();
+        BehaviorManager.getInstance().setUIHandler(mH);
+
         init(savedInstanceState);
+    }
+
+    private void sureH() {
+        if (mH == null) {
+            mH = new Handler() {
+                @Override
+                public void handleMessage(Message msg) {
+                    switch (msg.what) {
+                        case BehaviorManager.ACTION_BEHAVIOR_TOAST:
+                            Toast.makeText(WorkspaceActivity.this, "" + msg.obj, Toast.LENGTH_SHORT).show();
+                            break;
+                    }
+                }
+            };
+        }
     }
 
     @Override

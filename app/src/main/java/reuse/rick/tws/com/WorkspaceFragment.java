@@ -1,8 +1,6 @@
 package reuse.rick.tws.com;
 
 import android.app.Activity;
-import android.content.ClipboardManager;
-import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -79,7 +77,7 @@ public class WorkspaceFragment extends Fragment implements IWorkspaceUI, View.On
 ////        ClipboardManager clipboardManager = (ClipboardManager) getActivity().getSystemService(Context.CLIPBOARD_SERVICE);
 ////        clipboardManager.setText("wewer");
 
-        PascWebviewActivity.startWebviewActivity(getActivity());
+        PascWebviewActivity.startWebviewActivity(getActivity(), "file:///android_asset/pasc_demo.html");
     }
 
     @Override

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
@@ -17,11 +18,12 @@ import com.pasc.lib.webpage.util.WebViewVirtualBoardAndInputTools;
 
 final public class PascWebviewActivity extends FragmentActivity {
     private PascWebviewFragment mWebviewFragment;
+    private final static String EXTRA_URL_FLG = "extra_url";
 
     // 启动WebviewActivity
-    public static void startWebviewActivity(final Context context) {
+    public static void startWebviewActivity(final Context context, final String url) {
         Intent intent = new Intent(context, PascWebviewActivity.class);
-//        intent.putExtra(PAGE_TYPE, pageType);
+        intent.putExtra(EXTRA_URL_FLG, url);
         context.startActivity(intent);
     }
 
@@ -70,6 +72,11 @@ final public class PascWebviewActivity extends FragmentActivity {
         }
 
         mWebviewFragment = (PascWebviewFragment) fragment;
+
+        Intent intent = getIntent();
+        if (null != intent) {
+            mWebviewFragment.loadUrl(intent.getStringExtra(EXTRA_URL_FLG));
+        }
     }
 
     protected void showFragment(int resId, Fragment fg) {

@@ -1,4 +1,4 @@
-package com.pasc.lib.webpage;
+package com.pasc.lib.webpage.webview;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -10,6 +10,10 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.View;
 
+import com.pasc.lib.webpage.Message;
+import com.pasc.lib.webpage.WebViewJavascriptBridge;
+import com.pasc.lib.webpage.behavior.BehaviorManager;
+import com.pasc.lib.webpage.callback.CallBackFunction;
 import com.pasc.lib.webpage.util.FileUiUtils;
 import com.tencent.smtt.sdk.WebSettings;
 import com.tencent.smtt.sdk.WebView;
@@ -20,15 +24,13 @@ import java.util.List;
 import java.util.Map;
 
 @SuppressLint("SetJavaScriptEnabled")
-public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
+public class PascWebView extends WebView implements WebViewJavascriptBridge {
 
-    private final String TAG = "BridgeWebView";
+    private final String TAG = PascWebView.class.getSimpleName();
 
-    public static final String js_javascript_bridge = "WebViewJavascriptBridge.js";
+    public static final String JS_JAVASCRIPT_BRIDGE = "WebViewJavascriptBridge.js";
     Map<String, CallBackFunction> responseCallbacks = new HashMap<String, CallBackFunction>();
-    Map<String, BridgeHandler> messageHandlers = new HashMap<String, BridgeHandler>();
-    BridgeHandler defaultHandler = new DefaultHandler();
-    private Context mContext = null;
+    private Context mContext;
 
     private List<Message> startupMessage = new ArrayList<Message>();
 
@@ -36,17 +38,17 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
         return startupMessage;
     }
 
-    private BridgeWebChromeClient mBridgeWebChromeClient = null;
-    private BridgeWebViewClient mBridgeWebViewClient = null;
+    private PascWebChromeClient mWebChromeClient = null;
+    private PascWebViewClient mWebViewClient = null;
 
-    public BridgeWebChromeClient getBridgeWebChromeClient() {
+    public PascWebChromeClient getWebChromeClient() {
         sureWebChromeClient();
-        return mBridgeWebChromeClient;
+        return mWebChromeClient;
     }
 
     public boolean isLoadFinish() {
-        if (null != mBridgeWebViewClient) {
-            return mBridgeWebViewClient.isLoadFinish();
+        if (null != mWebViewClient) {
+            return mWebViewClient.isLoadFinish();
         }
 
         return true;
@@ -58,33 +60,25 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
 
     private long uniqueId = 0;
 
-    public BridgeWebView(Context context, AttributeSet attrs) {
+    public PascWebView(Context context, AttributeSet attrs) {
         super(context, attrs);
         mContext = context;
 
         init();
     }
 
-    public BridgeWebView(Context context, AttributeSet attrs, int defStyle) {
+    public PascWebView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mContext = context;
 
         init();
     }
 
-    public BridgeWebView(Context context) {
+    public PascWebView(Context context) {
         super(context);
         mContext = context;
 
         init();
-    }
-
-    /**
-     * @param handler default handler,handle messages send by js without assigned handler name,
-     *                if js message has handler name, it will be handled by named handlers registered by native
-     */
-    public void setDefaultHandler(BridgeHandler handler) {
-        this.defaultHandler = handler;
     }
 
     private void init() {
@@ -127,17 +121,17 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
     }
 
     private void sureWebViewClient() {
-        if (null == mBridgeWebViewClient) {
-            mBridgeWebViewClient = new BridgeWebViewClient(this);
-            this.setWebViewClient(mBridgeWebViewClient);
+        if (null == mWebViewClient) {
+            mWebViewClient = new PascWebViewClient(this);
+            this.setWebViewClient(mWebViewClient);
         }
     }
 
     private void sureWebChromeClient() {
-        if (null == mBridgeWebChromeClient) {
-            mBridgeWebChromeClient = new BridgeWebChromeClient();
-            mBridgeWebChromeClient.setContext(mContext);
-            setWebChromeClient(mBridgeWebChromeClient);
+        if (null == mWebChromeClient) {
+            mWebChromeClient = new PascWebChromeClient();
+            mWebChromeClient.setContext(mContext);
+            setWebChromeClient(mWebChromeClient);
         }
     }
 
@@ -187,6 +181,7 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
         if (!TextUtils.isEmpty(handlerName)) {
             m.setHandlerName(handlerName);
         }
+        
         queueMessage(m);
     }
 
@@ -272,16 +267,9 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
                                     }
                                 };
                             }
-                            // BridgeHandler执行
-                            BridgeHandler handler;
-                            if (!TextUtils.isEmpty(m.getHandlerName())) {
-                                handler = messageHandlers.get(m.getHandlerName());
-                            } else {
-                                handler = defaultHandler;
-                            }
-                            if (handler != null) {
-                                handler.handler(m.getData(), responseFunction);
-                            }
+
+                            // BehaviorHandler执行
+                            BehaviorManager.getInstance().actionBehavior(m, responseFunction);
                         }
                     }
                 }
@@ -294,31 +282,6 @@ public class BridgeWebView extends WebView implements WebViewJavascriptBridge {
         this.loadUrl(jsUrl);
         // 添加至 Map<String, CallBackFunction>
         responseCallbacks.put(BridgeUtil.parseFunctionName(jsUrl), returnCallback);
-    }
-
-    /**
-     * register handler,so that javascript can call it
-     * 注册处理程序,以便javascript调用它
-     *
-     * @param handlerName handlerName
-     * @param handler     BridgeHandler
-     */
-    public void registerHandler(String handlerName, BridgeHandler handler) {
-        if (handler != null) {
-            // 添加至 Map<String, BridgeHandler>
-            messageHandlers.put(handlerName, handler);
-        }
-    }
-
-    /**
-     * unregister handler
-     *
-     * @param handlerName
-     */
-    public void unregisterHandler(String handlerName) {
-        if (handlerName != null) {
-            messageHandlers.remove(handlerName);
-        }
     }
 
     /**

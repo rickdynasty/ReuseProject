@@ -1,10 +1,12 @@
-package com.pasc.lib.webpage;
+package com.pasc.lib.webpage.webview;
 
 import android.graphics.Bitmap;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.view.KeyEvent;
 
+import com.pasc.lib.webpage.Message;
+import com.pasc.lib.webpage.callback.WebViewClientListener;
 import com.tencent.smtt.export.external.interfaces.ClientCertRequest;
 import com.tencent.smtt.export.external.interfaces.SslError;
 import com.tencent.smtt.export.external.interfaces.SslErrorHandler;
@@ -21,17 +23,17 @@ import java.net.URLDecoder;
  * 如果要自定义WebViewClient必须要集成此类
  * Created by bruce on 10/28/15.
  */
-public class BridgeWebViewClient extends WebViewClient {
+public class PascWebViewClient extends WebViewClient {
 
     private static String ERROR_PAGE = "file:///android_asset/failload/failLoadPage.html";
 
-    private BridgeWebView mWebView;
+    private PascWebView mWebView;
 
     private WebViewClientListener mListener = null;
 
     private boolean isLoadFinish = false;
 
-    public BridgeWebViewClient(BridgeWebView webView) {
+    public PascWebViewClient(PascWebView webView) {
         this.mWebView = webView;
     }
 
@@ -103,8 +105,8 @@ public class BridgeWebViewClient extends WebViewClient {
         super.onPageFinished(view, url);
         isLoadFinish = true;
 
-        if (BridgeWebView.js_javascript_bridge != null) {
-            BridgeUtil.webViewLoadLocalJs(view, BridgeWebView.js_javascript_bridge);
+        if (PascWebView.JS_JAVASCRIPT_BRIDGE != null) {
+            BridgeUtil.webViewLoadLocalJs(view, PascWebView.JS_JAVASCRIPT_BRIDGE);
         }
 
         //
@@ -112,6 +114,7 @@ public class BridgeWebViewClient extends WebViewClient {
             for (Message m : mWebView.getStartupMessage()) {
                 mWebView.dispatchMessage(m);
             }
+
             mWebView.setStartupMessage(null);
         }
     }

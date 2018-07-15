@@ -5,25 +5,30 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
+import com.pasc.lib.webpage.behavior.BehaviorManager;
+import com.pasc.lib.webpage.webview.PascWebView;
+import com.pasc.lib.webpage.callback.WebChromeClientCallback;
 import com.tencent.smtt.sdk.DownloadListener;
 import com.tencent.smtt.sdk.ValueCallback;
+import com.tencent.smtt.sdk.WebBackForwardList;
 
 import static android.app.Activity.RESULT_OK;
 
 public class PascWebviewFragment extends BaseFragment implements WebChromeClientCallback {
     private final String TAG = PascWebviewFragment.class.getSimpleName();
 
-    public final static int FILECHOOSER_RESULTCODE = 1;
-    public final static int FILECHOOSER_RESULTCODE_FOR_ANDROID_5 = 2;
+    public final static int FILECHOOSER_RESULTCODE = 0x1000;
+    public final static int FILECHOOSER_RESULTCODE_FOR_ANDROID_5 = 0x1001;
 
-    public BridgeWebView mWebView = null;
+    public PascWebView mWebView = null;
+    private String mUrl = "";
 
     ValueCallback<Uri> mUploadMessage;
     ValueCallback<Uri[]> mUploadMessageForAndroid5;
@@ -32,11 +37,6 @@ public class PascWebviewFragment extends BaseFragment implements WebChromeClient
     ValueAnimator mValueAnimator = null;
     private ProgressBar mProgressbar;
     private int mCurrentProgress;
-    /**
-     * 加载地址
-     */
-    private String mUrl = "";
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -49,34 +49,40 @@ public class PascWebviewFragment extends BaseFragment implements WebChromeClient
             initWebView();
         }
 
+        BehaviorManager.getInstance().sureRegisterDefaultHandler();
         return mRootView;
     }
-
 
     private void initWebView() {
         if (null == mWebView) {
             throw new RuntimeException("WebView can not be null!");
         }
 
-        if (null != mWebView.getBridgeWebChromeClient()) {
-            mWebView.getBridgeWebChromeClient().setWebChromeClientCallback(this);
+        if (null != mWebView.getWebChromeClient()) {
+            mWebView.getWebChromeClient().setWebChromeClientCallback(this);
         }
 
         if (mActivity != null) {
             mWebView.setDownloadListener(new MyWebViewDownLoadListener());
+            if (!TextUtils.isEmpty(mUrl)) {
+                mWebView.loadUrl(mUrl);
+            }
+        }
+    }
 
+    public void loadUrl(String url) {
+        if (TextUtils.isEmpty(url)) {
+            return;
+        }
+
+        //新的页面需要重新cache自定义行为
+        BehaviorManager.getInstance().clearCustomBehavior();
+        if (null == mWebView) {
+            mUrl = url;
+        } else {
             // 加载url
-            mWebView.loadUrl("file:///android_asset/pasc_demo.html");
-//            mWebView.loadUrl("http://news.baidu.com/");
-            mWebView.registerHandler("PASC.app.webControlBackItem", new BridgeHandler() {
-
-                @Override
-                public void handler(String data, CallBackFunction function) {
-                    Toast.makeText(getActivity(), "PASC.app.webControlBackItem：" + data, Toast.LENGTH_LONG).show();
-                    function.onCallBack("Native get 到了(*￣︶￣)");
-                }
-
-            });
+            mWebView.loadUrl(url);
+            mUrl = null;
         }
     }
 
@@ -191,18 +197,20 @@ public class PascWebviewFragment extends BaseFragment implements WebChromeClient
     @Override
     public boolean onBackPressed() {
         if (mWebView.isLoadFinish() && mWebView.canGoBack()) {/*&& !isDirectlyFinish*/
-//            //获取历史列表
-//            WebBackForwardList mWebBackForwardList = mWebView.copyBackForwardList();
-//            //判断当前历史列表是否最顶端,其实canGoBack已经判断过
-//            if (mWebBackForwardList.getCurrentIndex() > 0) {
-            mWebView.goBack();
-            return true;
-//            }
+            //获取历史列表
+            WebBackForwardList mWebBackForwardList = mWebView.copyBackForwardList();
+            //判断当前历史列表是否最顶端,其实canGoBack已经判断过
+            if (mWebBackForwardList.getCurrentIndex() > 0) {
+                mWebView.goBack();
+                return true;
+            }
         } else {
             if (mActivity != null) {
                 mActivity.finish();
             }
             return true;
         }
+
+        return super.onBackPressed();
     }
 }

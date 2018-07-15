@@ -1,4 +1,4 @@
-package com.pasc.lib.webpage;
+package com.pasc.lib.webpage.webview;
 
 import android.content.Context;
 

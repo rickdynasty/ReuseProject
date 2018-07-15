@@ -1,4 +1,4 @@
-package com.pasc.lib.webpage;
+package com.pasc.lib.webpage.callback;
 
 import android.graphics.Bitmap;
 import android.view.KeyEvent;
