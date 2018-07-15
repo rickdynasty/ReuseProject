@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import com.tencent.smtt.sdk.DownloadListener;
 import com.tencent.smtt.sdk.ValueCallback;
@@ -65,8 +66,16 @@ public class PascWebviewFragment extends BaseFragment implements WebChromeClient
             mWebView.setDownloadListener(new MyWebViewDownLoadListener());
 
             // 加载url
-//            mWebView.loadUrl("file:///android_asset/test.html");
-            mWebView.loadUrl("http://news.baidu.com/");
+            mWebView.loadUrl("file:///android_asset/pasc_demo.html");
+//            mWebView.loadUrl("http://news.baidu.com/");
+            mWebView.registerHandler("PASC.app.webControlBackItem", new BridgeHandler() {
+
+                @Override
+                public void handler(String data, CallBackFunction function) {
+                    Toast.makeText(getActivity(), "PASC.app.webControlBackItem：" + data, Toast.LENGTH_LONG).show();
+                }
+
+            });
         }
     }
 
