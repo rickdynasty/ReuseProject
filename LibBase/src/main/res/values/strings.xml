@@ -1,3 +1,60 @@
 <resources>
-    <string name="app_name">LibBase</string>
+    <string name="app_name">BaseLibs</string>
+
+    <string name="user_token_invalid">用户身份验证失效</string>
+    <string name="token_invalid">登陆已失效，请重新登陆</string>
+
+    <string name="pickerview_cancel">取消</string>
+    <string name="pickerview_submit">确定</string>
+    <string name="pickerview_year">年</string>
+    <string name="pickerview_month">月</string>
+    <string name="pickerview_day">日</string>
+    <string name="pickerview_hours">时</string>
+    <string name="pickerview_minutes">分</string>
+    <string name="pickerview_seconds">秒</string>
+
+    <!--TakePhoto-->
+    <string name="tip_type_not_image">选择的不是图片</string>
+    <string name="tip_no_camera">没有相机</string>
+    <string name="tip_tips">提示</string>
+    <string name="tip_compress">正在压缩照片...</string>
+    <string name="tip_compress_failed">"%1$s 图片压缩失败:%2$s picturePath:%3$s"</string>
+    <string name="msg_crop_failed">"有裁切失败的图片"</string>
+    <string name="msg_compress_failed">"有压缩失败的图片"</string>
+    <string name="msg_crop_canceled">" 取消裁切"</string>
+    <string name="msg_operation_canceled">"操作被取消"</string>
+    <string name="tip_permission_camera">没有使用相机的权限，请在权限管理中开启</string>
+    <string name="tip_permission_storage">没有使用SD卡的权限，请在权限管理中开启</string>
+    <string name="tip_permission_camera_storage">没有使用相机和SD卡的权限，请在权限管理中开启</string>
+
+    <!--custom multipleimageselect -->
+    <string name="album_view">选择图片</string>
+    <string name="image_view">单击选择</string>
+
+    <string name="add">确定</string>
+    <string name="selected">已选</string>
+    <string name="limit_exceeded">最多能选 %d 张</string>
+
+    <string name="list_load_end">已无更多内容</string>
+    <string name="list_load_failed">加载失败，请点我重试</string>
+    <string name="list_loading">正在加载中...</string>
+
+    <!--错误页-->
+    <string name="common_empty_tips">暂时没有内容哦</string>
+    <string name="common_network_error_tips">暂无网络，稍后再试啦</string>
+    <string name="common_error_tips">加载失败，请稍后重试哦</string>
+    <string name="retry_now">立即重试</string>
+
+    <string name="wait_time"><![CDATA[正在为您寻找车辆，等待<font color="#ff6658"> %s </font>]]></string>
+
+    <string name="btn_ok">确定</string>
+    <string name="btn_cancel">取消</string>
+    <string name="cancel">取消</string>
+
+    <!--地图-->
+    <string name="use_gaode">用高德地图导航</string>
+    <string name="use_baidu">用百度地图导航</string>
+
+    <!--更多服务-->
+    <string name="more_service_tip">搜索服务，如“社保”</string>
 </resources>

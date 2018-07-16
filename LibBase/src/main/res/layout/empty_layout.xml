@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_bg"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:clickable="true">
+
+    <ImageView
+        android:id="@+id/iv_empty_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_150.0"
+        android:src="@drawable/ic_common_empty" />
+
+    <TextView
+        android:id="@+id/tv_empty_tips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/iv_empty_icon"
+        android:layout_centerHorizontal="true"
+        android:text="@string/common_empty_tips"
+        android:textColor="@color/gray_8d8d8d"
+        android:textSize="@dimen/sp_14" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/rtv_retry"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_50"
+        android:layout_below="@id/tv_empty_tips"
+        android:layout_marginLeft="@dimen/dp_40"
+        android:layout_marginRight="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_30.0"
+        android:gravity="center"
+        android:text="@string/retry_now"
+        android:textColor="@color/black_333333"
+        android:textSize="@dimen/text_size_17"
+        android:visibility="gone"
+        app:rv_textPressColor="@color/gray_333333"
+        app:rv_backgroundPressColor="@color/default_press_color"
+        app:rv_backgroundColor="@color/white_ffffff"
+        app:rv_strokeColor="@color/gray_e8e8e8"
+        app:rv_strokeWidth="@dimen/dp_1.0" />
+
+    <include
+        layout="@layout/default_loading_layout"
+        android:id="@+id/layout_loading"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent" />
+
+</RelativeLayout>

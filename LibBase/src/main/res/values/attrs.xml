@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="srlDrawableSize" format="dimension" /><!--图片尺寸-->
+    <attr name="srlDrawableArrowSize" format="dimension" /><!--箭头图片尺寸-->
+    <attr name="srlDrawableProgressSize" format="dimension" /><!--箭头图片尺寸-->
+    <attr name="srlDrawableMarginRight" format="dimension" /><!--图片和文字的间距-->
+    <attr name="srlTextSizeTitle" format="dimension" /><!--标题字体-->
+    <attr name="srlTextSizeTime" format="dimension" /><!--时间字体-->
+    <attr name="srlFinishDuration" format="integer" /><!--完成时停留时间-->
+    <attr name="srlPrimaryColor" format="color" /><!--主要颜色-->
+    <attr name="srlAccentColor" format="color" /><!--强调颜色-->
+    <attr name="srlDrawableArrow" format="reference" /><!--箭头图片-->
+    <attr name="srlDrawableProgress" format="reference" /><!--转动图片-->
+    <attr name="srlEnableHorizontalDrag" format="boolean" /><!--支持水平拖动-->
+    <attr name="srlClassicsSpinnerStyle" format="enum">
+        <enum name="Translate" value="0" /><!--平行移动-->
+        <enum name="Scale" value="1" /><!--拉伸形变-->
+        <enum name="FixedBehind" value="2" /><!--固定在背后-->
+    </attr>
+
+    <attr name="layout_srlSpinnerStyle" format="enum">
+        <enum name="Translate" value="0" /><!--平行移动-->
+        <enum name="Scale" value="1" /><!--拉伸形变-->
+        <enum name="FixedBehind" value="2" /><!--固定在背后-->
+        <enum name="FixedFront" value="3" /><!--固定在前面-->
+        <enum name="MatchLayout" value="4" /><!--填满布局-->
+    </attr>
+
+
+    <declare-styleable name="Banner">
+        <attr name="delay_time" format="integer" />
+        <attr name="scroll_time" format="integer" />
+        <attr name="is_auto_play" format="boolean" />
+        <attr name="title_background" format="color|reference" />
+        <attr name="title_textcolor" format="color" />
+        <attr name="title_textsize" format="dimension" />
+        <attr name="title_height" format="dimension" />
+        <attr name="indicator_width" format="dimension" />
+        <attr name="indicator_height" format="dimension" />
+        <attr name="indicator_margin" format="dimension" />
+        <attr name="indicator_drawable_selected" format="reference" />
+        <attr name="indicator_drawable_unselected" format="reference" />
+        <attr name="image_scale_type" format="enum">
+            <enum name="center" value="0" />
+            <enum name="center_crop" value="1" />
+            <enum name="center_inside" value="2" />
+            <enum name="fit_center" value="3" />
+            <enum name="fit_end" value="4" />
+            <enum name="fit_start" value="5" />
+            <enum name="fit_xy" value="6" />
+            <enum name="matrix" value="7" />
+        </attr>
+        <!--<attr name="indicator_animator" format="reference" />-->
+        <!--<attr name="indicator_animator_reverse" format="reference" />-->
+        <attr name="indicator_bottom_margin" format="dimension" />
+        <attr name="indicator_right_margin" format="dimension" />
+        <attr name="use_indicator_drawable_size" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="SmartRefreshLayout">
+        <attr name="srlPrimaryColor" />
+        <attr name="srlAccentColor" />
+        <attr name="srlReboundDuration" format="integer" />
+        <attr name="srlHeaderHeight" format="dimension" />
+        <attr name="srlFooterHeight" format="dimension" />
+        <attr name="srlDragRate" format="float" />
+        <attr name="srlHeaderMaxDragRate" format="float" />
+        <attr name="srlFooterMaxDragRate" format="float" />
+        <attr name="srlHeaderTriggerRate" format="float" />
+        <attr name="srlFooterTriggerRate" format="float" />
+        <attr name="srlEnableRefresh" format="boolean" />
+        <attr name="srlEnableLoadmore" format="boolean" />
+        <attr name="srlEnableHeaderTranslationContent" format="boolean" />
+        <attr name="srlEnableFooterTranslationContent" format="boolean" />
+        <attr name="srlEnablePreviewInEditMode" format="boolean" />
+        <attr name="srlEnableAutoLoadmore" format="boolean" />
+        <attr name="srlEnableOverScrollBounce" format="boolean" />
+        <attr name="srlEnablePureScrollMode" format="boolean" />
+        <attr name="srlEnableNestedScrolling" format="boolean" />
+        <attr name="srlEnableScrollContentWhenLoaded" format="boolean" />
+        <attr name="srlEnableScrollContentWhenRefreshed" format="boolean" />
+        <attr name="srlEnableLoadmoreWhenContentNotFull" format="boolean" />
+        <attr name="srlEnableFooterFollowWhenLoadFinished" format="boolean" />
+        <attr name="srlEnableOverScrollDrag" format="boolean" />
+        <attr name="srlDisableContentWhenRefresh" format="boolean" />
+        <attr name="srlDisableContentWhenLoading" format="boolean" />
+        <attr name="srlFixedHeaderViewId" format="reference" />
+        <attr name="srlFixedFooterViewId" format="reference" />
+    </declare-styleable>
+
+    <declare-styleable name="SmartRefreshLayout_Layout">
+        <attr name="layout_srlSpinnerStyle" />
+        <attr name="layout_srlBackgroundColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="BezierRadarHeader">
+        <attr name="srlPrimaryColor" />
+        <attr name="srlAccentColor" />
+        <attr name="srlEnableHorizontalDrag" />
+    </declare-styleable>
+
+    <declare-styleable name="BallPulseFooter">
+        <attr name="srlClassicsSpinnerStyle" />
+        <attr name="srlPrimaryColor" />
+        <attr name="srlAccentColor" />
+    </declare-styleable>
+
+    <declare-styleable name="ClassicsHeader">
+        <attr name="srlClassicsSpinnerStyle" />
+        <attr name="srlPrimaryColor" />
+        <attr name="srlAccentColor" />
+        <attr name="srlFinishDuration" />
+        <attr name="srlDrawableArrow" />
+        <attr name="srlDrawableProgress" />
+        <attr name="srlDrawableMarginRight" />
+        <attr name="srlDrawableSize" />
+        <attr name="srlDrawableArrowSize" />
+        <attr name="srlDrawableProgressSize" />
+        <attr name="srlTextSizeTitle" />
+        <attr name="srlTextSizeTime" />
+        <attr name="srlTextTimeMarginTop" format="dimension" />
+        <attr name="srlEnableLastTime" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="ClassicsFooter">
+        <attr name="srlClassicsSpinnerStyle" />
+        <attr name="srlPrimaryColor" />
+        <attr name="srlAccentColor" />
+        <attr name="srlFinishDuration" />
+        <attr name="srlTextSizeTitle" />
+        <attr name="srlDrawableArrow" />
+        <attr name="srlDrawableProgress" />
+        <attr name="srlDrawableMarginRight" />
+        <attr name="srlDrawableSize" />
+        <attr name="srlDrawableArrowSize" />
+        <attr name="srlDrawableProgressSize" />
+    </declare-styleable>
+
+    <declare-styleable name="MaterialHeader">
+        <attr name="mhPrimaryColor" format="color" />
+        <attr name="mhShadowColor" format="color" />
+        <attr name="mhShadowRadius" format="dimension" />
+        <attr name="mhShowBezierWave" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="ShapeImageViewStyle">
+        <attr name="riv_border_color" format="color" />
+        <attr name="riv_border_width" format="dimension" />
+        <attr name="riv_corner_radius" format="dimension" />
+        <attr name="riv_is_circle" format="boolean" />
+        <attr name="riv_pressed_border_color" format="color" />
+        <attr name="riv_pressed_border_width" format="dimension" />
+        <attr name="riv_pressed_mask_color" format="color" />
+        <attr name="riv_pressed_mode_enabled" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="CircleProgressView">
+        <attr name="cpv_progressNormalColor" format="color" />
+        <attr name="cpv_progressReachColor" format="color" />
+        <attr name="cpv_progressTextColor" format="color" />
+        <attr name="cpv_progressTextSize" format="dimension" />
+        <attr name="cpv_progressTextOffset" format="dimension" />
+        <attr name="cpv_progressNormalSize" format="dimension" />
+        <attr name="cpv_progressReachSize" format="dimension" />
+        <attr name="cpv_radius" format="dimension" />
+        <attr name="cpv_progressTextVisible" format="boolean" />
+        <attr name="cpv_progressStartArc" format="integer" />
+        <attr name="cpv_progressTextSkewX" format="dimension" />
+        <attr name="cpv_progressTextPrefix" format="string" />
+        <attr name="cpv_progressTextSuffix" format="string" />
+        <attr name="cpv_innerBackgroundColor" format="color" />
+        <attr name="cpv_progressStyle" format="enum">
+            <enum name="Normal" value="0" />
+            <enum name="FillInner" value="1" />
+            <enum name="FillInnerArc" value="2" />
+        </attr>
+        <attr name="cpv_innerProgressColor" format="color" />
+        <attr name="cpv_innerPadding" format="dimension" />
+        <attr name="cpv_outerColor" format="color" />
+        <attr name="cpv_outerSize" format="dimension" />
+        <attr name="cpv_reachCapRound" format="boolean" />
+    </declare-styleable>
+    <declare-styleable name="pickerview">
+        <attr name="pickerview_gravity">
+            <enum name="center" value="17" />
+            <enum name="left" value="3" />
+            <enum name="right" value="5" />
+        </attr>
+        <attr name="pickerview_textSize" format="dimension" />
+        <attr name="pickerview_textColorOut" format="color" />
+        <attr name="pickerview_textColorCenter" format="color" />
+        <attr name="pickerview_dividerColor" format="color" />
+        <attr name="pickerview_lineSpacingMultiplier" format="float" />
+    </declare-styleable>
+
+    <!--圆弧进度条-->
+    <declare-styleable name="TasksCompletedView">
+        <attr name="radius" format="dimension" />
+        <attr name="strokeWidth" format="dimension" />
+        <attr name="circleColor" format="color" />
+        <attr name="ringColor" format="color" />
+        <attr name="ringBgColor" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="CommonTagView">
+        <attr name="comments" format="string" />
+        <attr name="contentHorizontalPadding" format="dimension" />
+        <attr name="contentMaxRows" format="integer" />
+        <attr name="contentVerticalPadding" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="CommonTitleView">
+        <attr name="title" format="string" />
+        <attr name="titleColor" format="color" />
+        <attr name="backgroundColor" format="color" />
+        <attr name="titleSize" format="dimension" />
+        <attr name="titleVisibility" format="boolean" />
+
+        <attr name="leftText" format="string" />
+        <attr name="leftTextColor" format="color" />
+        <attr name="leftTextSize" format="dimension" />
+        <attr name="leftTextVisibility" format="boolean" />
+
+        <attr name="rightText" format="string" />
+        <attr name="rightTextColor" format="color" />
+        <attr name="rightTextSize" format="dimension" />
+        <attr name="rightTextVisibility" format="boolean" />
+
+        <attr name="leftIcon" format="reference" />
+        <attr name="leftIconVisibility" format="boolean" />
+
+        <attr name="rightIcon" format="reference" />
+        <attr name="rightIconVisibility" format="boolean" />
+        <attr name="titleDividerVisibility" format="boolean" />
+
+        <attr name="rightLeftIcon" format="reference" />
+        <attr name="rightLeftIconVisibility" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="DashLineView">
+        <attr name="dash_line_color" />
+        <attr name="dash_line_clearance" />
+        <attr name="dash_line_orientation">
+            <enum name="horizontal" value="0" />
+            <enum name="vertical" value="1" />
+        </attr>
+    </declare-styleable>
+
+    <declare-styleable name="EmptyView">
+        <attr name="tips" format="string" />
+        <attr name="icon" format="reference" />
+        <attr name="retry_text" format="string" />
+        <attr name="isShowRetry" format="boolean" />
+    </declare-styleable>
+
+    <declare-styleable name="UpRollView">
+        <attr name="extraHeight" format="dimension" />
+    </declare-styleable>
+
+    <declare-styleable name="ViewPagerIndicatorView">
+        <attr name="indicator_icon" />
+        <attr name="indicator_margin" />
+        <attr name="indicator_smooth" />
+    </declare-styleable>
+
+    <!--滑轮控件-->
+    <declare-styleable name="WheelPicker">
+        <attr name="wheel_data" format="reference" />
+        <attr name="wheel_selected_item_position" format="integer" />
+        <attr name="wheel_item_text_size" format="dimension" />
+        <attr name="wheel_item_text_color" format="color" />
+        <attr name="wheel_selected_item_text_color" format="color" />
+        <attr name="wheel_same_width" format="boolean" />
+        <attr name="wheel_maximum_width_text" format="string" />
+        <attr name="wheel_maximum_width_text_position" format="integer" />
+        <attr name="wheel_visible_item_count" format="integer" />
+        <attr name="wheel_item_space" format="dimension" />
+        <attr name="wheel_cyclic" format="boolean" />
+        <attr name="wheel_indicator" format="boolean" />
+        <attr name="wheel_indicator_color" format="color" />
+        <attr name="wheel_indicator_marginLeft" format="dimension" />
+        <attr name="wheel_indicator_marginRight" format="dimension" />
+        <attr name="wheel_indicator_size" format="dimension" />
+        <attr name="wheel_curtain" format="boolean" />
+        <attr name="wheel_curtain_color" format="color" />
+        <attr name="wheel_atmospheric" format="boolean" />
+        <attr name="wheel_curved" format="boolean" />
+        <attr name="wheel_item_align" format="enum">
+            <enum name="center" value="0" />
+            <enum name="left" value="1" />
+            <enum name="right" value="2" />
+        </attr>
+        <attr name="wheel_line_color" format="color" />
+        <attr name="wheel_line_height" format="dimension" />
+    </declare-styleable>
+</resources>

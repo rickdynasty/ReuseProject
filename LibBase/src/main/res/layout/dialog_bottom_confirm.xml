@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@android:color/transparent"
+    android:gravity="end"
+    android:orientation="vertical">
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/tv_content"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:rv_backgroundColor="#ffffff"
+        app:rv_cornerRadius_TL="3sp"
+        app:rv_cornerRadius_TR="3sp"
+        android:gravity="center"
+        android:text="是否确认退出登录？"
+        android:textColor="@color/gray_999999"
+        android:textSize="@dimen/text_size_15" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dddddd" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/tv_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        app:rv_backgroundColor="#ffffff"
+        app:rv_cornerRadius_BL="3sp"
+        app:rv_cornerRadius_BR="3sp"
+        android:gravity="center"
+        android:text="@string/btn_ok"
+        android:textColor="@color/red_f14431"
+        android:textSize="@dimen/text_size_20" />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="@android:color/transparent"
+        android:layout_height="10dp" />
+
+    <com.flyco.roundview.RoundTextView
+        android:id="@+id/tv_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="57dp"
+        app:rv_backgroundColor="#ffffff"
+        android:gravity="center"
+        android:text="@string/cancel"
+        android:textColor="@color/black_2e332f"
+        android:textSize="@dimen/text_size_20"
+        app:rv_cornerRadius="3sp" />
+
+</LinearLayout>

@@ -88,25 +88,25 @@ public class PascWebView extends WebView implements WebViewJavascriptBridge {
         this.setHorizontalScrollBarEnabled(false);
         WebSettings settings = getSettings();
         settings.setJavaScriptEnabled(true);
-        settings.setSavePassword(false);//h5界面不准保存密码
-        settings.setUseWideViewPort(true);
-        settings.setLoadWithOverviewMode(true);
-        settings.setBuiltInZoomControls(true);
-        settings.setDisplayZoomControls(false);
-//            String userAgent;
-//            String version = Utils.getLocalVersionName(mActivity);
-//            userAgent = " PAChat(Android APP/" + version + " Build/" + version + " pasc)";
-//            settings.setUserAgentString(settings.getUserAgentString() + userAgent);
-        settings.setAppCacheEnabled(true);
-        String appCachePath = FileUiUtils.getExternalCacheDir(mContext).getAbsolutePath();
-        Log.d(TAG, "appCachePath::" + appCachePath);
-        settings.setAppCachePath(appCachePath);
-
-        settings.setAppCacheMaxSize(100 * 1024 * 1024);
-        settings.setDatabaseEnabled(true);
-        settings.setDomStorageEnabled(true);
-        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
-        settings.setAllowFileAccess(true);
+//        settings.setSavePassword(false);//h5界面不准保存密码
+//        settings.setUseWideViewPort(true);
+//        settings.setLoadWithOverviewMode(true);
+//        settings.setBuiltInZoomControls(true);
+//        settings.setDisplayZoomControls(false);
+////            String userAgent;
+////            String version = Utils.getLocalVersionName(mActivity);
+////            userAgent = " PAChat(Android APP/" + version + " Build/" + version + " pasc)";
+////            settings.setUserAgentString(settings.getUserAgentString() + userAgent);
+//        settings.setAppCacheEnabled(true);
+//        String appCachePath = FileUiUtils.getExternalCacheDir(mContext).getAbsolutePath();
+//        Log.d(TAG, "appCachePath::" + appCachePath);
+//        settings.setAppCachePath(appCachePath);
+//
+//        settings.setAppCacheMaxSize(100 * 1024 * 1024);
+//        settings.setDatabaseEnabled(true);
+//        settings.setDomStorageEnabled(true);
+//        settings.setCacheMode(WebSettings.LOAD_DEFAULT);
+//        settings.setAllowFileAccess(true);
         if (Build.VERSION_CODES.KITKAT <= Build.VERSION.SDK_INT) {
             settings.setLoadsImagesAutomatically(true);
         } else {

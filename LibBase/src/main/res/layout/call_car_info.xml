@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/call_car_menu_bg">
+
+    <ImageView
+        android:id="@+id/iv_photo"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="15dp"
+        android:src="@mipmap/ic_touxiang" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_toRightOf="@id/iv_photo"
+        android:text="杜师傅"
+        android:textColor="@color/black_222222"
+        android:textSize="@dimen/text_size_20" />
+
+    <ImageView
+        android:layout_width="4dp"
+        android:layout_height="4dp"
+        android:layout_alignTop="@id/tv_name"
+        android:layout_marginLeft="4dp"
+        android:layout_marginRight="4dp"
+        android:layout_marginTop="12dp"
+        android:layout_toRightOf="@id/tv_name"
+        android:src="@drawable/shape_black_circle_background" />
+
+    <TextView
+        android:id="@+id/tv_car_license"
+        android:layout_width="66dp"
+        android:layout_height="19dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="25dp"
+        android:layout_toRightOf="@id/tv_name"
+        android:background="@drawable/shape_gray_car_license"
+        android:gravity="center"
+        android:text="苏FB6007"
+        android:textColor="@color/black_333333"
+        android:textSize="@dimen/text_size_12" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/tv_name"
+        android:layout_below="@id/tv_name"
+        android:text="南通中南出租公司"
+        android:textColor="@color/gray_6a6a6a"
+        android:textSize="@dimen/text_size_12" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@id/tv_name"
+        android:layout_marginRight="15dp"
+        android:src="@mipmap/ic_call_car_phone"
+        android:visibility="gone" />
+
+    <Button
+        android:id="@+id/btn_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/iv_photo"
+        android:layout_marginBottom="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/call_car_btn_bg"
+        android:text="已上车"
+        android:textColor="@color/white_ffffff"
+        android:textSize="@dimen/text_size_16" />
+
+</RelativeLayout>
+

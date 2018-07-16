@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="129dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:rv_backgroundColor="@color/white_ffffff"
+    app:rv_cornerRadius="3dp"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_context"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="16dp"
+        android:text="提示"
+        android:textColor="@color/black_2e332f"
+        android:textSize="@dimen/text_size_17" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="17.5dp"
+        android:layout_marginTop="10dp"
+        android:text="您的个人身份证照片上传成功"
+        android:textColor="@color/black_2e332f"
+        android:textSize="@dimen/text_size_15" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/gray_dddddd" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv_cancel"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="取消"
+            android:textColor="@color/black_2e332f"
+            android:textSize="@dimen/text_size_17" />
+
+        <View
+            android:visibility="gone"
+            android:layout_width="0.5dp"
+            android:layout_height="match_parent"
+            android:background="@color/gray_dddddd" />
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/selector_button_common"
+            android:gravity="center"
+            android:text="确认"
+            android:textColor="@color/blue_27a5f9"
+            android:textSize="@dimen/text_size_17"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</com.flyco.roundview.RoundLinearLayout>
