@@ -115,9 +115,6 @@ dependencies {
     // zxing二维码扫描
     api 'com.journeyapps:zxing-android-embedded:3.3.0'
 
-    //简单圆角控件
-    api 'com.flyco.roundview:FlycoRoundView_Lib:1.1.4@aar'
-
     api 'com.makeramen:roundedimageview:2.3.0'
 
     api 'me.gujun.android.taggroup:library:1.4@aar'

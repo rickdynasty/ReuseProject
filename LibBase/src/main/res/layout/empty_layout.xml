@@ -26,7 +26,7 @@
         android:textColor="@color/gray_8d8d8d"
         android:textSize="@dimen/sp_14" />
 
-    <com.flyco.roundview.RoundTextView
+    <com.pasc.lib.base.widget.roundview.RoundTextView
         android:id="@+id/rtv_retry"
         android:layout_width="match_parent"
         android:layout_height="@dimen/dp_50"

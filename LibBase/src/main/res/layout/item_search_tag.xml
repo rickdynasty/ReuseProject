@@ -5,7 +5,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <com.flyco.roundview.RoundTextView
+    <com.pasc.lib.base.widget.roundview.RoundTextView
         android:id="@+id/rtv_tag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

@@ -13,7 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.flyco.roundview.RoundTextView;
+import com.pasc.lib.base.widget.roundview.RoundTextView;
 import com.pasc.lib.base.ICallBack;
 import com.pasc.lib.base.R;
 import com.pasc.lib.base.util.CommonUtils;

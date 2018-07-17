@@ -7,7 +7,7 @@
     android:gravity="end"
     android:orientation="vertical">
 
-    <com.flyco.roundview.RoundTextView
+    <com.pasc.lib.base.widget.roundview.RoundTextView
         android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -24,7 +24,7 @@
         android:layout_height="0.5dp"
         android:background="@color/gray_dddddd" />
 
-    <com.flyco.roundview.RoundTextView
+    <com.pasc.lib.base.widget.roundview.RoundTextView
         android:id="@+id/tv_confirm"
         android:layout_width="match_parent"
         android:layout_height="50dp"
@@ -41,7 +41,7 @@
         android:background="@android:color/transparent"
         android:layout_height="10dp" />
 
-    <com.flyco.roundview.RoundTextView
+    <com.pasc.lib.base.widget.roundview.RoundTextView
         android:id="@+id/tv_cancel"
         android:layout_width="match_parent"
         android:layout_height="57dp"

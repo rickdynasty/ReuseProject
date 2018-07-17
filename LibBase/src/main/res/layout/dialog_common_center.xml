@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.flyco.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.pasc.lib.base.widget.roundview.RoundLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -8,7 +8,7 @@
     app:rv_cornerRadius="3dp"
     app:rv_backgroundColor="@color/white_ffffff">
 
-    <com.flyco.roundview.RoundTextView
+    <com.pasc.lib.base.widget.roundview.RoundTextView
         android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +19,7 @@
         android:visibility="gone"
         android:text="标题" />
 
-    <com.flyco.roundview.RoundTextView
+    <com.pasc.lib.base.widget.roundview.RoundTextView
         android:id="@+id/tv_content"
         android:layout_marginTop="20dp"
         android:layout_width="wrap_content"
@@ -44,7 +44,7 @@
         android:layout_height="40dp"
         android:orientation="horizontal">
 
-        <com.flyco.roundview.RoundTextView
+        <com.pasc.lib.base.widget.roundview.RoundTextView
             android:id="@+id/tv_button1"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -62,7 +62,7 @@
             android:layout_height="match_parent"
             android:background="@color/gray_dddddd" />
 
-        <com.flyco.roundview.RoundTextView
+        <com.pasc.lib.base.widget.roundview.RoundTextView
             android:visibility="gone"
             android:id="@+id/tv_button2"
             android:layout_width="0dp"
@@ -74,4 +74,4 @@
             android:textColor="@color/gray_999999"
             android:textSize="@dimen/text_size_17" />
     </LinearLayout>
-</com.flyco.roundview.RoundLinearLayout>
+</com.pasc.lib.base.widget.roundview.RoundLinearLayout>

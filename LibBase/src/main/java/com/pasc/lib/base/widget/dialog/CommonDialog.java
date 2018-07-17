@@ -12,8 +12,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.flyco.roundview.RoundLinearLayout;
-import com.flyco.roundview.RoundTextView;
+import com.pasc.lib.base.widget.roundview.RoundLinearLayout;
+import com.pasc.lib.base.widget.roundview.RoundTextView;
 import com.pasc.lib.base.R;
 import com.pasc.lib.base.util.ScreenUtils;
 import com.pasc.lib.base.util.SizeUtils;
