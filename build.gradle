@@ -1,30 +1,28 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-apply from: 'module_config.gradle'
+apply from: 'module_config.gradle'  // 引用额外配置
 
-buildscript {
+// 根目录的build.gradle 会影响工程中其他模块的builde.gradle文件的引用仓库路径
+buildscript {   // 构建脚本引用
 
-    repositories {
-        jcenter()
-        mavenCentral()
-        maven { url 'https://maven.google.com' }
+    repositories {      // 插件仓库配置
         google()
+        jcenter()       // jcenter 本质上是一个maven仓库
     }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
-        classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+    dependencies {      //依赖插件
+        classpath 'com.android.tools.build:gradle:3.0.1'    // Google的Android Gradle插件
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
-allprojects {
-    repositories {
-        jcenter()
-        mavenCentral()
-        maven { url "https://jitpack.io" }
+allprojects {       // 全部项目的配置
+    repositories {      // 全部项目引用的基础仓库配置
         google()
+        jcenter()
     }
 }
 
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
+task clean(type: Delete) {      // 申明任务
+    delete rootProject.buildDir     // 删除主路径buildDir文件夹
 }

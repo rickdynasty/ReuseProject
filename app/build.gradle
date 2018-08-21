@@ -1,34 +1,60 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.application'     // 引入编译构建Gradle插件，相当于import
 
-android {
-    compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
+// 每一个build.gradle自身是一个project对象，project.apply()会加载到某一个工程库到project对象中。
+// apply plugin: 'xxx' 会将project对象传递入工具库，然后在通过插件中的groovy文件来操作project对象的属性，来完善配置初始化信息。
+//
+// 每一个project中包含很多task的构建任务，每个task中可以包含多个Action，每个action相当于一个代码块，包含很多需要被执行的代码。
+// 将build.gradle看做类似于java中的类文件，而不是简单的配置文件。
+//
+// Gradle管理着整个project对象的生命周期，分三个不同的阶段：1初始化：settings.gradle → 2配置：buidle.gradle[也会去创建、配置Task及相关信息] → 3构建：Gradle
+//
+//
 
-    defaultConfig {
-        applicationId "reuse.rick.tws.com"
-        minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
-        versionName "1.0"
+android {   // ①函数方程式，使用闭包函数的编写方式。【其真实调用相当于project.android{}】
+    compileSdkVersion rootProject.ext.android.compileSdkVersion     //编译的SDK
+    buildToolsVersion rootProject.ext.android.buildToolsVersion     //编译的Tools版本
+    defaultConfig {     // 默认的配置
+        applicationId "demo.net.citizen.pasc.com.componentdemo"
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
 
         resConfigs "en", "de", "es"
         flavorDimensions "versionCode"
         ndk { abiFilters "armeabi" }
     }
-    buildTypes {
+    buildTypes {    // 构建类型
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            minifyEnabled false     //混淆 false:不混淆
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'  //混淆文件
+        }
+    }
+
+    repositories {
+        flatDir {
+            dirs 'libs'
+        }
+    }
+
+    // 规范输出的apk名
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            if (variant.buildType.name.equals('release')) {
+                outputFileName = "Component_${variant.versionName}_release.apk"
+            } else if (variant.buildType.name.equals('debug')) {
+                outputFileName = "Component_${variant.versionName}_debug.apk"
+            }
         }
     }
 }
 
-dependencies {
+dependencies {  // ①函数方程式
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    implementation "com.android.support:appcompat-v7:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support:recyclerview-v7:$rootProject.ext.supportLibraryVersion"
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.ext.constraint_layout"
-    implementation "com.google.code.gson:gson:$rootProject.ext.gson"
-    implementation project(':Workspace')
-    implementation project(':LibWebpage')
+    implementation rootProject.ext.dependencies.appcompat_v7
+    implementation rootProject.ext.dependencies.recyclerview_v7
+    implementation rootProject.ext.dependencies.constraint_layout
+    implementation rootProject.ext.dependencies.gson
+    api(name: 'LibBase', ext: 'aar')
+    api(name: 'Workspace', ext: 'aar')
 }
